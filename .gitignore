@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+.venv/
+venv/
+
+# Local configuration and data
+.env
+*.db
+*.sqlite3
+
+# Generated ML artifacts
+artifacts/
+
+data/LC_loans_granting_model_dataset.csv

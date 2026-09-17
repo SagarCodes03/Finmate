@@ -1,0 +1,162 @@
+{
+  "name": "FinMate Prototype Financial Journey",
+  "nodes": [
+    {
+      "parameters": {"httpMethod": "POST", "path": "finmate-journey", "responseMode": "responseNode", "options": {}},
+      "id": "4c23d693-04ef-4689-bbdc-22af0c5e8b1c",
+      "name": "FinMate Journey Input",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [0, 300]
+    },
+    {
+      "parameters": {"jsCode": "const request = $json.body ?? $json;\nfor (const field of ['journey_id', 'customer_id', 'customer_goal', 'requested_amount']) { if (request[field] === undefined || request[field] === null || request[field] === '') throw new Error(`Missing required field: ${field}`); }\nif (!Number.isFinite(Number(request.requested_amount)) || Number(request.requested_amount) <= 0) throw new Error('requested_amount must be a positive number');\nreturn [{ json: { journey_id: request.journey_id, customer_id: request.customer_id, customer_goal: request.customer_goal, requested_amount: Number(request.requested_amount) } }];"},
+      "id": "ea8e6ad8-e714-4f48-845f-03d61c841558",
+      "name": "Validate Request",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [220, 300]
+    },
+    {
+      "parameters": {"url": "={{ $env.FINMATE_API_URL + '/api/v1/simulated-context/' + $node['Validate Request'].json.customer_id + '/crm' }}", "options": {}},
+      "id": "18212378-7d55-4c99-96ef-d20938d98ca9",
+      "name": "Get Simulated CRM Context",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [450, 300]
+    },
+    {
+      "parameters": {"url": "={{ $env.FINMATE_API_URL + '/api/v1/simulated-context/' + $node['Validate Request'].json.customer_id + '/financial' }}", "options": {}},
+      "id": "9c46a25a-e266-4a18-a6b7-e3f62b298a53",
+      "name": "Get Simulated Financial Context",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {"url": "={{ $env.FINMATE_API_URL + '/api/v1/simulated-context/' + $node['Validate Request'].json.customer_id + '/credit' }}", "options": {}},
+      "id": "8f46ccf4-6f9f-45bb-b897-c53112c96908",
+      "name": "Get Simulated Credit Context",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [910, 300]
+    },
+    {
+      "parameters": {"jsCode": "const journey = $node['Validate Request'].json;\nconst crm = $node['Get Simulated CRM Context'].json;\nconst financial = $node['Get Simulated Financial Context'].json;\nconst credit = $node['Get Simulated Credit Context'].json;\nreturn [{ json: { ...journey, crm, financial, credit, model_features: { revenue: financial.annual_revenue, dti_n: financial.dti_n, loan_amnt: journey.requested_amount, fico_n: credit.fico_n, emp_length: credit.emp_length, purpose: financial.purpose, home_ownership_n: credit.home_ownership_n } } }];"},
+      "id": "679ce60c-4acb-41bf-9a22-5a539ed549e5",
+      "name": "Build Model Context",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1140, 300]
+    },
+    {
+      "parameters": {"method": "POST", "url": "={{ $env.FINMATE_API_URL + '/api/v1/risk/infer' }}", "sendBody": true, "contentType": "json", "specifyBody": "json", "jsonBody": "={{ { revenue: $node['Build Model Context'].json.model_features.revenue, dti_n: $node['Build Model Context'].json.model_features.dti_n, loan_amnt: $node['Build Model Context'].json.model_features.loan_amnt, fico_n: $node['Build Model Context'].json.model_features.fico_n, emp_length: $node['Build Model Context'].json.model_features.emp_length, purpose: $node['Build Model Context'].json.model_features.purpose, home_ownership_n: $node['Build Model Context'].json.model_features.home_ownership_n } }}", "options": {}},
+      "id": "c610c4f2-0d67-4b07-a3b4-e350bd241175",
+      "name": "Run Risk Inference",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1370, 300]
+    },
+    {
+      "parameters": {"jsCode": "// SHAP is already computed by the existing backend inference service.\n// This node makes that explanatory context explicit for the journey.\nreturn [{ json: { ...$json, shap_source: 'EXISTING_BACKEND_INFERENCE', is_simulated_journey: true } }];"},
+      "id": "5c316291-f1a7-4f8f-b5a0-bf7da4ca4da9",
+      "name": "Get SHAP Explanation",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1600, 300]
+    },
+    {
+      "parameters": {"method": "POST", "url": "={{ $env.FINMATE_API_URL + '/api/v1/policy/evaluate' }}", "sendBody": true, "contentType": "json", "specifyBody": "json", "jsonBody": "={{ { journey_id: $node['Build Model Context'].json.journey_id, goal: $node['Build Model Context'].json.customer_goal, requested_loan_amount: $node['Build Model Context'].json.requested_amount, risk_signal: { risk_probability: $json.risk_probability, predicted_risk_class: $json.predicted_risk_class, model_version: $json.model_version }, required_information: { customer_identity_verified: $node['Build Model Context'].json.crm.customer_identity_verified, business_context_verified: $node['Build Model Context'].json.crm.business_context_verified, required_documents_complete: $node['Build Model Context'].json.crm.required_documents_complete }, top_risk_factors: $json.top_risk_factors, top_protective_factors: $json.top_protective_factors, customer_context: { business_type: $node['Build Model Context'].json.crm.business_type, business_tenure_years: $node['Build Model Context'].json.crm.business_tenure_years, existing_customer_relationship: $node['Build Model Context'].json.crm.existing_customer_relationship, account_activity_summary: $node['Build Model Context'].json.financial.account_activity_summary, simulated: true } } }}", "options": {}},
+      "id": "2597dc51-243a-43d8-8d5b-796532866a0c",
+      "name": "Evaluate Policy",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1830, 300]
+    },
+    {
+      "parameters": {"rules": {"values": [{"conditions": {"options": {"caseSensitive": true, "leftValue": "", "typeValidation": "strict"}, "conditions": [{"leftValue": "={{ $json.decision }}", "rightValue": "NOT_SUITABLE", "operator": {"type": "string", "operation": "equals"}}], "combinator": "and"}, "renameOutput": true, "outputKey": "Not Suitable"}, {"conditions": {"options": {"caseSensitive": true, "leftValue": "", "typeValidation": "strict"}, "conditions": [{"leftValue": "={{ $json.decision }}", "rightValue": "COMPLEX_REVIEW", "operator": {"type": "string", "operation": "equals"}}], "combinator": "and"}, "renameOutput": true, "outputKey": "Complex Review"}, {"conditions": {"options": {"caseSensitive": true, "leftValue": "", "typeValidation": "strict"}, "conditions": [{"leftValue": "={{ $json.decision }}", "rightValue": "MISSING_INFORMATION", "operator": {"type": "string", "operation": "equals"}}], "combinator": "and"}, "renameOutput": true, "outputKey": "Missing Information"}], "options": {"fallbackOutput": "extra", "renameFallbackOutput": "Eligible"}}},
+      "id": "e1e94d79-f655-4d59-b4e8-36d3a09f3c1f",
+      "name": "Decision Router",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [2060, 300]
+    },
+    {
+      "parameters": {"method": "POST", "url": "={{ $env.FINMATE_API_URL + '/api/v1/recovery/evaluate' }}", "sendBody": true, "contentType": "json", "jsonBody": "={{ { journey_id: $node['Build Model Context'].json.journey_id, customer_goal: $node['Build Model Context'].json.customer_goal, requested_amount: $node['Build Model Context'].json.requested_amount, original_policy_decision: $json.decision, policy_reason_code: $json.reason_code, policy_version: $json.policy_version, risk_signal: $json.risk_signal, top_risk_factors: $node['Get SHAP Explanation'].json.top_risk_factors, customer_context: { simulated: true } } }}", "options": {}},
+      "id": "a71b4144-459a-46c5-b35f-b8082a62eb42",
+      "name": "Goal Recovery",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [2290, 120]
+    },
+    {
+      "parameters": {"jsCode": "const policy = $node['Evaluate Policy'].json;\nconst recovery = $json;\nconst journey = $node['Build Model Context'].json;\nreturn [{ json: { journey_id: journey.journey_id, customer_goal: journey.customer_goal, requested_amount: journey.requested_amount, risk_signal: $node['Get SHAP Explanation'].json, policy_decision: policy, goal_recovery: recovery, next_action: recovery.available_paths.length ? 'Present prototype recovery paths; no approval is implied.' : 'Follow the governed policy result.', audit: { policy_version: policy.policy_version, recovery_version: recovery.recovery_version, simulated: true } } }];"},
+      "id": "77e33df7-4b30-4a90-9952-0042eb531a18",
+      "name": "Final Journey Result - Recovery",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [2520, 120]
+    },
+    {
+      "parameters": {"respondWith": "json", "responseBody": "={{ $json }}", "options": {}},
+      "id": "3787caf9-ed11-429d-b624-bab374747a1e",
+      "name": "Return Recovery Journey Result",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [2750, 120]
+    },
+    {
+      "parameters": {"jsCode": "const policy = $json; const journey = $node['Build Model Context'].json; return [{ json: { journey_id: journey.journey_id, customer_goal: journey.customer_goal, requested_amount: journey.requested_amount, risk_signal: $node['Get SHAP Explanation'].json, policy_decision: policy, goal_recovery: null, next_action: 'Route to human review; no automated recovery is generated.', audit: { policy_version: policy.policy_version, simulated: true } } }];"},
+      "id": "da72ab29-4b9c-4ec4-bc44-8d0a50a723e3",
+      "name": "Human Review Path",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [2290, 260]
+    },
+    {
+      "parameters": {"respondWith": "json", "responseBody": "={{ $json }}", "options": {}},
+      "id": "05a58cbe-231e-41d0-8b91-224d63f78f90",
+      "name": "Return Human Review Result",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [2520, 260]
+    },
+    {
+      "parameters": {"jsCode": "const policy = $json; const journey = $node['Build Model Context'].json; return [{ json: { journey_id: journey.journey_id, customer_goal: journey.customer_goal, requested_amount: journey.requested_amount, risk_signal: $node['Get SHAP Explanation'].json, policy_decision: policy, goal_recovery: null, next_action: 'Request the missing information identified by the governed policy.', audit: { policy_version: policy.policy_version, simulated: true } } }];"},
+      "id": "2b5f7ec9-0395-433d-ab40-c29ca4c3d96c",
+      "name": "Missing Information Path",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [2290, 400]
+    },
+    {
+      "parameters": {"respondWith": "json", "responseBody": "={{ $json }}", "options": {}},
+      "id": "924f945f-8fd3-40a3-8ea4-6b2f62d6fc5c",
+      "name": "Return Missing Information Result",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [2520, 400]
+    },
+    {
+      "parameters": {"jsCode": "const policy = $json; const journey = $node['Build Model Context'].json; return [{ json: { journey_id: journey.journey_id, customer_goal: journey.customer_goal, requested_amount: journey.requested_amount, risk_signal: $node['Get SHAP Explanation'].json, policy_decision: policy, goal_recovery: null, next_action: 'Continue to the next governed journey step; no approval is implied.', audit: { policy_version: policy.policy_version, simulated: true } } }];"},
+      "id": "988c3b18-cc0a-4ce5-9879-08ffd39af3fe",
+      "name": "Eligible Path",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [2290, 540]
+    },
+    {
+      "parameters": {"respondWith": "json", "responseBody": "={{ $json }}", "options": {}},
+      "id": "317dcc2a-bbc4-4974-9fb2-b8fc5b5f9bfe",
+      "name": "Return Eligible Result",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [2520, 540]
+    }
+  ],
+  "connections": {"FinMate Journey Input":{"main":[[{"node":"Validate Request","type":"main","index":0}]]},"Validate Request":{"main":[[{"node":"Get Simulated CRM Context","type":"main","index":0}]]},"Get Simulated CRM Context":{"main":[[{"node":"Get Simulated Financial Context","type":"main","index":0}]]},"Get Simulated Financial Context":{"main":[[{"node":"Get Simulated Credit Context","type":"main","index":0}]]},"Get Simulated Credit Context":{"main":[[{"node":"Build Model Context","type":"main","index":0}]]},"Build Model Context":{"main":[[{"node":"Run Risk Inference","type":"main","index":0}]]},"Run Risk Inference":{"main":[[{"node":"Get SHAP Explanation","type":"main","index":0}]]},"Get SHAP Explanation":{"main":[[{"node":"Evaluate Policy","type":"main","index":0}]]},"Evaluate Policy":{"main":[[{"node":"Decision Router","type":"main","index":0}]]},"Decision Router":{"main":[[{"node":"Goal Recovery","type":"main","index":0}],[{"node":"Human Review Path","type":"main","index":0}],[{"node":"Missing Information Path","type":"main","index":0}],[{"node":"Eligible Path","type":"main","index":0}]]},"Goal Recovery":{"main":[[{"node":"Final Journey Result - Recovery","type":"main","index":0}]]},"Final Journey Result - Recovery":{"main":[[{"node":"Return Recovery Journey Result","type":"main","index":0}]]},"Human Review Path":{"main":[[{"node":"Return Human Review Result","type":"main","index":0}]]},"Missing Information Path":{"main":[[{"node":"Return Missing Information Result","type":"main","index":0}]]},"Eligible Path":{"main":[[{"node":"Return Eligible Result","type":"main","index":0}]]}},
+  "pinData": {},
+  "settings": {"executionOrder": "v1"},
+  "staticData": null,
+  "tags": []
+}
