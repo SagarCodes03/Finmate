@@ -13,7 +13,7 @@ import app.models  # Registers all SQLAlchemy models before table creation.
 from app.api.v1.router import api_router
 from app.config import get_settings
 from app.context.seed import seed_demo_customers
-from app.database import Base, SessionLocal, engine
+from app.database import Base, SessionLocal, engine, ensure_demo_context_schema
 
 settings = get_settings()
 
@@ -21,6 +21,7 @@ settings = get_settings()
 @asynccontextmanager
 async def lifespan(_: FastAPI):
     Base.metadata.create_all(bind=engine)
+    ensure_demo_context_schema()
     with SessionLocal() as db:
         seed_demo_customers(db)
     yield

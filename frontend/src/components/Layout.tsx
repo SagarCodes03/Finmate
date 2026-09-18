@@ -1,13 +1,11 @@
 import { NavLink, useLocation } from "react-router-dom";
 import type { ReactNode } from "react";
 
-const navItems = [
-  ["/", "New journey"],
-  ["/journey", "Journey"],
-  ["/assistant", "FinMate AI"],
-  ["/intelligence", "Decision intelligence"],
-  ["/audit", "Audit & transparency"],
-  ["/history", "Demo history"]
+const navGroups = [
+  { label: "Journey", items: [["/", "New journey"], ["/journey", "Journey"]] },
+  { label: "Intelligence", items: [["/intelligence", "Decision intelligence"], ["/assistant", "FinMate AI"]] },
+  { label: "Governance", items: [["/human-review", "Human review"], ["/audit", "Audit & transparency"]] },
+  { label: "History", items: [["/history", "Demo history"]] }
 ] as const;
 
 export function Layout({ children }: { children: ReactNode }) {
@@ -21,11 +19,14 @@ export function Layout({ children }: { children: ReactNode }) {
         </NavLink>
         <p className="brand-tagline">Your AI teammate for financial journeys.</p>
         <nav aria-label="Primary navigation">
-          {navItems.map(([to, label]) => (
-            <NavLink key={to} to={to} end={to === "/"} className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}>
-              {label}
-            </NavLink>
-          ))}
+          {navGroups.map((group) => <section className="nav-group" key={group.label}>
+            <span>{group.label}</span>
+            {group.items.map(([to, label]) => (
+              <NavLink key={to} to={to} end={to === "/"} aria-label={label === "Human review" ? "Human review workspace" : undefined} className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}>
+                {label}
+              </NavLink>
+            ))}
+          </section>)}
         </nav>
         <div className="sidebar-note">
           <strong>Prototype mode</strong>

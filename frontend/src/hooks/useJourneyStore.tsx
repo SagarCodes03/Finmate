@@ -11,11 +11,13 @@ interface JourneyStore {
   errorMessage: string | null;
   history: JourneyResponse[];
   previousAssessment: JourneyResponse | null;
+  customerSummary: { name: string; businessType: string } | null;
   submit: (request: JourneyRequest) => Promise<JourneyResponse | null>;
   openJourney: (journey: JourneyResponse) => void;
   resetError: () => void;
   confirmVerification: (field: SimulatedVerificationField) => Promise<boolean>;
   reassess: () => Promise<JourneyResponse | null>;
+  setCustomerSummary: (summary: { name: string; businessType: string } | null) => void;
 }
 
 const JourneyStoreContext = createContext<JourneyStore | null>(null);
@@ -27,6 +29,7 @@ export function JourneyStoreProvider({ children }: { children: ReactNode }) {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [history, setHistory] = useState<JourneyResponse[]>([]);
   const [previousAssessment, setPreviousAssessment] = useState<JourneyResponse | null>(null);
+  const [customerSummary, setCustomerSummary] = useState<{ name: string; businessType: string } | null>(null);
 
   const value = useMemo<JourneyStore>(() => ({
     result,
@@ -35,6 +38,7 @@ export function JourneyStoreProvider({ children }: { children: ReactNode }) {
     errorMessage,
     history,
     previousAssessment,
+    customerSummary,
     openJourney: (journey) => {
       setResult(journey);
       setErrorMessage(null);
@@ -51,7 +55,8 @@ export function JourneyStoreProvider({ children }: { children: ReactNode }) {
         const response = await startJourney(request);
         setResult(response);
         setPreviousAssessment(null);
-        setCurrentCustomerId(request.customer_id);
+      setCurrentCustomerId(request.customer_id);
+        if (!request.customer_id.startsWith("custom-")) setCustomerSummary(null);
         setHistory((current) => [response, ...current.filter((item) => item.journey_id !== response.journey_id)]);
         setStatus("SUCCESS");
         return response;
@@ -66,6 +71,7 @@ export function JourneyStoreProvider({ children }: { children: ReactNode }) {
         return null;
       }
     },
+    setCustomerSummary,
     confirmVerification: async (field) => {
       if (!currentCustomerId) return false;
       try { await confirmSimulatedVerification(currentCustomerId, field); return true; }
@@ -83,7 +89,7 @@ export function JourneyStoreProvider({ children }: { children: ReactNode }) {
         setStatus("ERROR"); setErrorMessage(error instanceof Error ? error.message : "FinMate could not re-run the governed journey assessment."); return null;
       }
     }
-  }), [currentCustomerId, errorMessage, history, previousAssessment, result, status]);
+  }), [currentCustomerId, customerSummary, errorMessage, history, previousAssessment, result, status]);
 
   return <JourneyStoreContext.Provider value={value}>{children}</JourneyStoreContext.Provider>;
 }

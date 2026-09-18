@@ -1,4 +1,4 @@
-import type { JourneyReassessmentResponse, JourneyRequest, JourneyResponse, SimulatedVerificationField } from "../types/journey";
+import type { CustomCustomerRequest, CustomCustomerResponse, JourneyReassessmentResponse, JourneyRequest, JourneyResponse, SimulatedVerificationField } from "../types/journey";
 
 const apiBaseUrl = (import.meta.env.VITE_API_BASE_URL ?? "http://127.0.0.1:8000").replace(/\/$/, "");
 
@@ -69,6 +69,19 @@ export async function confirmSimulatedVerification(customerId: string, field: Si
     method: "PATCH", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ customer_id: customerId, field })
   });
   if (!response.ok) throw new JourneyApiError("FinMate could not update the simulated verification.", "error");
+}
+
+export async function createCustomCustomer(payload: CustomCustomerRequest): Promise<CustomCustomerResponse> {
+  let response: Response;
+  try {
+    response = await fetch(`${apiBaseUrl}/api/v1/custom-customers`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
+  } catch { throw new JourneyApiError("FinMate could not create the custom customer.", "unavailable"); }
+  if (!response.ok) {
+    let message = "FinMate could not create the custom customer. Please check the provided details.";
+    try { const body = await response.json() as { detail?: string }; if (typeof body.detail === "string") message = body.detail; } catch { /* Safe default. */ }
+    throw new JourneyApiError(message, "error");
+  }
+  return await response.json() as CustomCustomerResponse;
 }
 
 export async function reassessJourney(request: JourneyRequest, originalJourneyId: string): Promise<JourneyReassessmentResponse> {

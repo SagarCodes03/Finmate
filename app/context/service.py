@@ -40,6 +40,7 @@ class ContextService:
             "business_type": business.business_type,
             "business_tenure_years": business.business_tenure_years,
             "existing_customer_relationship": business.existing_customer_relationship,
+            "recovery_allowed": business.recovery_allowed,
         }
 
     def get_financial_context(self, customer_id: str) -> dict[str, Any]:

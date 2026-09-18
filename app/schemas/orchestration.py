@@ -72,6 +72,44 @@ class JourneyResponse(BaseModel):
     audit: dict[str, str | int | float | bool | None]
 
 
+class CustomCustomerCreate(BaseModel):
+    """Validated, simulated-only intake for a customer using the normal journey pipeline."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    name: str = Field(min_length=1, max_length=120)
+    business_type: str = Field(min_length=1, max_length=100)
+    customer_goal: str = Field(min_length=1, max_length=500)
+    requested_amount: int = Field(gt=0)
+    monthly_revenue: float = Field(gt=0)
+    monthly_obligations: float = Field(ge=0)
+    fico_n: float = Field(ge=300, le=850)
+    emp_length: str = Field(min_length=1, max_length=40)
+    home_ownership_n: Literal["RENT", "OWN", "MORTGAGE", "OTHER"]
+    business_tenure_years: int = Field(gt=0, le=100)
+    purpose: str = Field(min_length=1, max_length=100)
+    customer_identity_verified: bool = False
+    required_documents_complete: bool = False
+    existing_customer_relationship: bool = False
+    recovery_allowed: bool = True
+
+    @model_validator(mode="after")
+    def validate_reasonable_obligations(self) -> "CustomCustomerCreate":
+        if self.monthly_obligations > self.monthly_revenue * 100:
+            raise ValueError("monthly_obligations is outside the supported prototype range")
+        return self
+
+
+class CustomCustomerResponse(BaseModel):
+    customer_id: str
+    name: str
+    business_type: str
+    customer_goal: str
+    requested_amount: int
+    dti_n: float
+    is_simulated: bool = True
+
+
 SimulatedVerificationField = Literal[
     "customer_identity_verified",
     "required_documents_complete",

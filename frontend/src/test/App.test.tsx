@@ -39,6 +39,23 @@ describe("FinMate journey UI", () => {
     expect(JSON.parse(String(options.body))).toMatchObject({ customer_id: "recovery-demo", customer_goal: "Purchase inventory", requested_amount: 200000 });
   });
 
+  it("opens and exits the Custom Customer intake form", async () => {
+    render(<App />);
+    await userEvent.click(screen.getByRole("button", { name: /new customer/i }));
+    expect(screen.getByRole("heading", { name: /start a custom governed journey/i })).toBeInTheDocument();
+    expect(screen.getByLabelText(/monthly revenue/i)).toBeInTheDocument();
+    await userEvent.click(screen.getByRole("button", { name: /back to demo customers/i }));
+    expect(screen.getByRole("button", { name: /analyze my journey/i })).toBeInTheDocument();
+  });
+
+  it("validates custom customer intake before making an API request", async () => {
+    const fetchMock = vi.fn(); vi.stubGlobal("fetch", fetchMock); render(<App />);
+    await userEvent.click(screen.getByRole("button", { name: /new customer/i }));
+    await userEvent.click(screen.getByRole("button", { name: /start governed journey/i }));
+    expect(await screen.findByRole("alert")).toHaveTextContent(/complete all required text fields/i);
+    expect(fetchMock).not.toHaveBeenCalled();
+  });
+
   it("renders an eligible governed next step without approval language", async () => { await submitDecision("ELIGIBLE"); expect(await screen.findByText(/your journey can move forward/i)).toBeInTheDocument(); expect(screen.getByText(/eligible for the next governed journey step/i)).toBeInTheDocument(); });
   it("renders returned required actions for missing information", async () => { await submitDecision("MISSING_INFORMATION"); expect(await screen.findByText(/we need a little more information/i)).toBeInTheDocument(); expect(screen.getByRole("button", { name: /confirm documents/i })).toBeInTheDocument(); });
   it("confirms simulated missing fields and renders the returned reassessment", async () => {

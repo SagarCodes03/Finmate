@@ -97,3 +97,16 @@ export interface JourneyReassessmentResponse {
   reassessment: JourneyResponse;
   is_simulated: boolean;
 }
+
+export interface CustomCustomerRequest {
+  name: string; business_type: string; customer_goal: string; requested_amount: number;
+  monthly_revenue: number; monthly_obligations: number; fico_n: number; emp_length: string;
+  home_ownership_n: "RENT" | "OWN" | "MORTGAGE" | "OTHER"; business_tenure_years: number; purpose: string;
+  customer_identity_verified: boolean; required_documents_complete: boolean;
+  existing_customer_relationship: boolean; recovery_allowed: boolean;
+}
+
+export interface CustomCustomerResponse {
+  customer_id: string; name: string; business_type: string; customer_goal: string;
+  requested_amount: number; dti_n: number; is_simulated: boolean;
+}

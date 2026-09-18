@@ -31,6 +31,7 @@ class BusinessProfile(Base):
     business_context_verified: Mapped[bool] = mapped_column(Boolean, default=False)
     required_documents_complete: Mapped[bool] = mapped_column(Boolean, default=False)
     existing_customer_relationship: Mapped[bool] = mapped_column(Boolean, default=False)
+    recovery_allowed: Mapped[bool] = mapped_column(Boolean, default=True)
 
     customer: Mapped[DemoCustomer] = relationship(back_populates="business_profile")
 
