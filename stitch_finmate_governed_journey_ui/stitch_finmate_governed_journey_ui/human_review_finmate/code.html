@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-surface-variant":"#444651","on-tertiary-container":"#6a97dc","inverse-on-surface":"#eaf1ff","on-primary-container":"#7893df","secondary-container":"#2bc6ff","on-background":"#0b1c30","surface-container-low":"#eff4ff","secondary":"#006686","on-error":"#ffffff","surface":"#f8f9ff","on-secondary-container":"#004f69","on-error-container":"#93000a","error-container":"#ffdad6","tertiary":"#001938","surface-tint":"#3f5ba3","surface-container-lowest":"#ffffff","on-secondary-fixed":"#001e2b","tertiary-fixed":"#d5e3ff","on-surface":"#0b1c30","on-secondary-fixed-variant":"#004d66","outline-variant":"#c4c6d2","error":"#ba1a1a","secondary-fixed-dim":"#71d2ff","tertiary-container":"#002e5d","surface-container-highest":"#d3e4fe","on-primary-fixed-variant":"#25438a","background":"#f8f9ff","on-tertiary-fixed":"#001b3c","on-tertiary-fixed-variant":"#074786","surface-bright":"#f8f9ff","surface-variant":"#d3e4fe","primary-fixed-dim":"#b3c5ff","inverse-surface":"#213145","outline":"#747682","primary-fixed":"#dae1ff","surface-container-high":"#dce9ff","on-tertiary":"#ffffff","on-primary":"#ffffff","secondary-fixed":"#c0e8ff","primary-container":"#002970","surface-container":"#e5eeff","inverse-primary":"#b3c5ff","primary":"#001645","on-primary-fixed":"#001849","on-secondary":"#ffffff","surface-dim":"#cbdbf5","tertiary-fixed-dim":"#a7c8ff"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{"space-xs":"0.25rem",gutter:"1.25rem","space-md":"1rem","space-sm":"0.5rem","space-xl":"2.25rem",margin:"1.5rem","space-lg":"1.5rem"},fontFamily:{"headline-sm":["Plus Jakarta Sans"],"display-lg":["Plus Jakarta Sans"],"body-sm":["Inter"],"label-sm":["Inter"],"body-md":["Inter"],"label-md":["Inter"],"headline-md":["Plus Jakarta Sans"],"title-md":["Inter"],"headline-lg":["Plus Jakarta Sans"],"display-lg-mobile":["Plus Jakarta Sans"],"label-lg":["Inter"],"body-lg":["Inter"]},fontSize:{"headline-sm":["18px",{lineHeight:"26px",fontWeight:"600"}],"display-lg":["40px",{lineHeight:"48px",letterSpacing:"-0.02em",fontWeight:"700"}],"body-sm":["12px",{lineHeight:"18px",fontWeight:"400"}],"label-sm":["11px",{lineHeight:"14px",letterSpacing:"0.03em",fontWeight:"500"}],"body-md":["14px",{lineHeight:"20px",fontWeight:"400"}],"label-md":["12px",{lineHeight:"16px",letterSpacing:"0.02em",fontWeight:"600"}],"headline-md":["22px",{lineHeight:"30px",fontWeight:"600"}],"title-md":["16px",{lineHeight:"24px",fontWeight:"600"}],"headline-lg":["28px",{lineHeight:"36px",letterSpacing:"-0.01em",fontWeight:"600"}],"display-lg-mobile":["30px",{lineHeight:"36px",letterSpacing:"-0.015em",fontWeight:"700"}],"label-lg":["14px",{lineHeight:"20px",letterSpacing:"0.01em",fontWeight:"500"}],"body-lg":["16px",{lineHeight:"24px",fontWeight:"400"}]}}}};</script></head><body class="bg-background font-body-md text-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between overflow-y-auto"><div class="flex flex-col"><div class="p-space-lg flex flex-col gap-space-xs"><div class="flex items-center gap-space-sm"><img alt="FinMate Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1X-4OlLWNVDyqCv7cMT1HahhbFrUEscACmuvTWSvl_apOMzLK1LPI2wdCZPA5SgRNTDN13kiRyWhS11h_6MCjp94B3ey026aVIwuJE3UOui1RiSPophIo6jcuwGaFOCcS5xgemZE_OAh-FdMPBviYo2zmdxxoLJ222gCLEEnp-SCQvzijnbRqOkd44tAQLkvxVqTnfVRbUypDg_VVwT25WpC2H8mAcHf-wN7BV3-j57PCiYhe-3mJOtNHI"/><span class="font-headline-sm text-headline-sm text-primary tracking-tight">FinMate</span></div><p class="font-label-sm text-label-sm text-on-surface-variant">Your AI teammate for financial journeys</p></div><nav class="flex flex-col gap-1 px-space-md py-space-xs" data-active-classes="bg-surface-container-high text-primary font-semibold"><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="new-journey" href="#/new-journey"><span class="material-symbols-outlined text-[20px]">add_circle</span><span class="font-body-md text-body-md">New Journey</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="journey-analysis" href="#/analysis"><span class="material-symbols-outlined text-[20px]">insights</span><span class="font-body-md text-body-md">Journey Analysis</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="goal-recovery" href="#/recovery"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[20px]">healing</span><span class="font-body-md text-body-md">Goal Recovery</span></div><span class="px-2 py-0.5 rounded-full bg-secondary-container/20 text-on-secondary-container font-label-sm text-label-sm uppercase tracking-wider">Core AI</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="decision-intelligence" href="#/intelligence"><span class="material-symbols-outlined text-[20px]">psychology</span><span class="font-body-md text-body-md">Decision Intelligence</span></a><a aria-current="page" class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg transition-colors bg-surface-container-high text-primary font-semibold" data-path="human-review" href="#/review"><span class="material-symbols-outlined text-[20px]">rate_review</span><span class="font-body-md text-body-md">Human Review</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="journey-history" href="#/history"><span class="material-symbols-outlined text-[20px]">history</span><span class="font-body-md text-body-md">Journey History</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="audit-governance" href="#/audit"><span class="material-symbols-outlined text-[20px]">gavel</span><span class="font-body-md text-body-md">Audit &amp; Governance</span></a></nav></div><div class="p-space-md m-space-md rounded-xl bg-surface-container-low flex flex-col gap-space-sm"><div class="flex items-center justify-between"><div class="flex items-center gap-2"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span></span><span class="font-label-md text-label-md text-primary">AI Teammate Active</span></div><span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">Prototype</span></div><div class="rounded-lg bg-surface-container-lowest p-space-sm"><p class="font-label-sm text-label-sm text-on-surface-variant leading-relaxed">AI orchestrates. ML + Rules govern. Humans oversee.</p></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 px-space-lg flex items-center justify-between"><div class="flex items-center gap-space-md"><img alt="FinMate Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1X-4OlLWNVDyqCv7cMT1HahhbFrUEscACmuvTWSvl_apOMzLK1LPI2wdCZPA5SgRNTDN13kiRyWhS11h_6MCjp94B3ey026aVIwuJE3UOui1RiSPophIo6jcuwGaFOCcS5xgemZE_OAh-FdMPBviYo2zmdxxoLJ222gCLEEnp-SCQvzijnbRqOkd44tAQLkvxVqTnfVRbUypDg_VVwT25WpC2H8mAcHf-wN7BV3-j57PCiYhe-3mJOtNHI"/><div class="flex items-center gap-2 text-on-surface-variant font-body-sm text-body-sm"><span class="text-primary font-label-md text-label-md">FinMate Console</span><span>/</span><span>Journey Management</span></div><div class="hidden xl:flex items-center gap-1.5 ml-space-sm"><button class="px-2.5 py-1 rounded-full bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] text-on-surface font-label-sm text-label-sm hover:bg-surface-container transition-colors" type="button">Rahul · ₹5L Review</button><button class="px-2.5 py-1 rounded-full bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] text-on-surface font-label-sm text-label-sm hover:bg-surface-container transition-colors" type="button">Ananya · ₹50k Eligible</button><button class="px-2.5 py-1 rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm hover:bg-surface-container-highest transition-colors" type="button">Meera · ₹2L Goal Recovery</button><button class="px-2.5 py-1 rounded-full bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] text-on-surface font-label-sm text-label-sm hover:bg-surface-container transition-colors" type="button">Vikram · ₹75k Missing Info</button></div></div><div class="flex items-center gap-space-md"><span class="px-2.5 py-1 rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm font-medium">Simulated Data</span><button class="flex items-center text-on-surface-variant hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">help_outline</span></button><button class="relative flex items-center text-on-surface-variant hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute -top-1 -right-1 h-2 w-2 rounded-full bg-secondary"></span></button><div class="flex items-center gap-space-sm pl-space-xs"><div class="flex flex-col text-right"><span class="font-label-md text-label-md text-primary leading-tight">Meera Patel</span><span class="font-label-sm text-label-sm text-on-surface-variant leading-tight">Merchant</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 bg-surface px-space-lg py-space-md min-h-screen"><div class="flex flex-col w-full">
+<!-- Top Progress & Context Ribbon -->
+<div class="w-full bg-surface-container-low rounded-2xl p-space-md mb-space-lg shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-surface-container-highest flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-[26px]">verified_user</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-primary">Rahul Kirana &amp; General Store</span>
+<span class="px-2.5 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">Retail Merchant</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Applicant: Rahul Sharma · Application ID: <span class="font-label-md text-label-md text-primary">APP-IN-2024-8841</span> · Goal: Store Expansion</p>
+</div>
+</div>
+<!-- Live Routing Status Pill -->
+<div class="flex items-center gap-2 bg-surface-container-lowest px-space-md py-space-xs rounded-full shadow-sm">
+<span class="relative flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-secondary"></span>
+</span>
+<span class="font-label-md text-label-md text-on-surface">Queue Position: <span class="text-primary font-semibold">#04 in Credit Committee</span></span>
+</div>
+</div>
+<!-- Main Hero Context Banner -->
+<div class="relative w-full rounded-3xl bg-surface-container-lowest p-space-xl shadow-md overflow-hidden mb-space-xl">
+<!-- Subtle Ambient Backdrop Accent -->
+<div class="absolute -right-24 -top-24 w-96 h-96 rounded-full bg-secondary-container/10 blur-3xl pointer-events-none"></div>
+<div class="absolute right-1/3 -bottom-24 w-72 h-72 rounded-full bg-primary/5 blur-2xl pointer-events-none"></div>
+<div class="relative z-10 max-w-4xl">
+<!-- Status Badge -->
+<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface-container-high text-on-secondary-fixed-variant mb-space-md shadow-sm">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-label-md text-label-md tracking-wider uppercase">Human Oversight Required</span>
+<span class="text-outline-variant">·</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Case: rev-rahul-092</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-primary tracking-tight mb-space-xs">
+        Your journey needs human review
+      </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed max-w-2xl mb-space-lg">
+        FinMate identified a case that requires additional human oversight under governed policy rules. We partner with human underwriters to ensure tailored evaluation for credit expansion.
+      </p>
+<!-- Transparency Card: Non-rejection Notice -->
+<div class="p-space-md rounded-2xl bg-surface-container-low shadow-sm flex items-start gap-space-md max-w-3xl">
+<div class="p-2 rounded-xl bg-surface-container-lowest text-primary shadow-sm mt-0.5">
+<span class="material-symbols-outlined text-[22px]">info</span>
+</div>
+<div class="flex-1">
+<div class="font-label-lg text-label-lg text-primary mb-1">
+            Important Transparency Guarantee
+          </div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+<span class="font-semibold text-on-surface">This is NOT a rejection.</span> Our automated engine recognizes high growth velocity in your store. A human underwriter will specifically evaluate your qualitative commercial lease terms, festival sales cycles, and physical stock turnover.
+          </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Central Grid: Dossier, Decision Intelligence & AI Companion -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg w-full mb-space-xl">
+<!-- Left 7 Cols: Detailed Case Review File -->
+<div class="lg:col-span-7 flex flex-col gap-space-lg">
+<!-- Stated Reason & Policy Specification -->
+<div class="bg-surface-container-lowest rounded-3xl p-space-xl shadow-md flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-secondary text-[24px]">policy</span>
+<span class="font-headline-sm text-headline-sm text-primary">Governance &amp; Policy Rule Trigger</span>
+</div>
+<span class="font-label-sm text-label-sm px-2.5 py-1 rounded-md bg-surface-container-high text-primary font-medium">Policy R007</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+          The requested capital tier (<span class="font-semibold text-primary">₹5,00,000</span>) and high-velocity trade profile require supplementary oversight under prototype rule <span class="font-semibold text-primary">R007: High-Value Micro-Enterprise Credit Expansion</span>.
+        </p>
+<!-- Metric comparison card -->
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-space-sm pt-space-xs">
+<div class="bg-surface-container-low p-space-md rounded-2xl">
+<span class="font-label-sm text-label-sm text-on-surface-variant block mb-1">Requested Capital</span>
+<span class="font-headline-md text-headline-md text-primary">₹5,00,000</span>
+<span class="font-label-sm text-label-sm text-secondary block mt-1">Expansion Tier 2</span>
+</div>
+<div class="bg-surface-container-low p-space-md rounded-2xl">
+<span class="font-label-sm text-label-sm text-on-surface-variant block mb-1">Auto-Approval Ceiling</span>
+<span class="font-headline-md text-headline-md text-on-surface-variant">₹2,00,000</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant block mt-1">Algorithmic Max</span>
+</div>
+<div class="bg-surface-container-low p-space-md rounded-2xl col-span-2 sm:col-span-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant block mb-1">Underwriter SLA</span>
+<span class="font-headline-md text-headline-md text-primary">24–48 hrs</span>
+<span class="font-label-sm text-label-sm text-secondary block mt-1">Target turnaround</span>
+</div>
+</div>
+<!-- Underwriter Review Checklist -->
+<div class="pt-space-md flex flex-col gap-space-sm">
+<span class="font-label-md text-label-md text-primary uppercase tracking-wider">Review Package Assembly Checklist</span>
+<!-- Item 1 -->
+<div class="flex items-center justify-between p-space-md rounded-2xl bg-surface-container-low">
+<div class="flex items-center gap-space-sm">
+<div class="w-7 h-7 rounded-full bg-surface-container-lowest flex items-center justify-center text-secondary shadow-sm">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+</div>
+<div>
+<p class="font-body-md text-body-md text-primary font-medium">Store Geo-Tag &amp; Outlet Verification</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">GPS verified at Santacruz West, Mumbai (Accuracy ±3m)</p>
+</div>
+</div>
+<span class="font-label-sm text-label-sm px-2.5 py-1 rounded-full bg-surface-container-highest text-primary font-medium">Verified</span>
+</div>
+<!-- Item 2 -->
+<div class="flex items-center justify-between p-space-md rounded-2xl bg-surface-container-low">
+<div class="flex items-center gap-space-sm">
+<div class="w-7 h-7 rounded-full bg-surface-container-lowest flex items-center justify-center text-secondary shadow-sm">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+</div>
+<div>
+<p class="font-body-md text-body-md text-primary font-medium">Simulated GSTR-3B Tax Filing Attached</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Q1–Q4 annualized GST turnover ₹42,60,000 validated</p>
+</div>
+</div>
+<span class="font-label-sm text-label-sm px-2.5 py-1 rounded-full bg-surface-container-highest text-primary font-medium">Validated</span>
+</div>
+<!-- Item 3: Pending -->
+<div class="flex items-center justify-between p-space-md rounded-2xl bg-surface-container-high">
+<div class="flex items-center gap-space-sm">
+<div class="w-7 h-7 rounded-full bg-surface-container-lowest flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-[18px] animate-spin">sync</span>
+</div>
+<div>
+<p class="font-body-md text-body-md text-primary font-medium">Awaiting Credit Underwriter Assignment</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Desk: Commercial Retail Desk · Priority queue assigned</p>
+</div>
+</div>
+<span class="font-label-sm text-label-sm px-2.5 py-1 rounded-full bg-surface-container-lowest text-primary font-semibold shadow-sm">Pending</span>
+</div>
+</div>
+<!-- Document Attachments Quick-Access Strip -->
+<div class="p-space-md rounded-2xl bg-surface-container-low mt-space-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]">folder_open</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Dossier includes 4 verification documents (Total 8.2 MB)</span>
+</div>
+<button class="text-secondary font-label-md text-label-md hover:underline flex items-center gap-1" type="button">
+<span>Inspect packet</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Qualitative Evidence Card (Photos of kirana store & ledger) -->
+<div class="bg-surface-container-lowest rounded-3xl p-space-xl shadow-md flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary">Qualitative Assets for Underwriter Review</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Physical establishment proof and fast-moving inventory records submitted by merchant.</p>
+</div>
+<span class="font-label-sm text-label-sm px-2.5 py-1 rounded-full bg-surface-container-low text-primary">2 Visual Records</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md pt-space-xs">
+<!-- Image 1: Kirana Store Front -->
+<div class="relative rounded-2xl overflow-hidden bg-surface-container shadow-sm group">
+<img class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Vibrant modern Indian grocery kirana store interior in Mumbai, neatly stocked shelves with spices, lentils, packaged goods, clean counter with a digital UPI QR scanner code and digital soundbox machine, natural daylight flooding through shopfront, professional commercial documentary photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzZgIwH2tx3pgNd7SvazrP1e9nmf_eN9bfCZ6bx2Ejb4_N9rcg9WZyGfH3fE5sIgZ4ThOgrgAngc634dhjFpWFeyKmVQgIKxRDOPJUoINXE7yEp_DBz0aksqHyDluGrORn1Xzt3Yeo8X96UcAT5VpV5DiO1GQ33-IXGrY5C1UcCQ6jsPaQ4UsaxJ8K7ro2g7H6ylwodX48D3Jvremts4sHnuEJ76QjsiJf4ramnTeDrfMujZepwOcv"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-3 left-3 right-3 text-on-primary">
+<span class="font-label-sm text-label-sm uppercase tracking-wider block opacity-90">Outlet Frontage</span>
+<p class="font-label-md text-label-md font-semibold truncate">Rahul Kirana Main Counter &amp; Inventory</p>
+</div>
+</div>
+<!-- Image 2: Commercial Lease / Ledger -->
+<div class="relative rounded-2xl overflow-hidden bg-surface-container shadow-sm group">
+<img class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Close up photograph of a neatly maintained Indian commercial merchant register and lease agreement on wooden desk with stamped official notarized seal and calculator beside, soft warm directional office lighting, high trust fintech documentary style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgPdmxOU55aHIuJD6F0GBViy4qIgQUYZnC3CdML1a-8Al6sJRa7cdlNU0XKadYfncLuTSvS-GEbNK2i6QA0lwC7-mvDIoR2sRmqxQsbN3ZfkE4KFCItXMOV5rUYGkSiky8PSjroXS7wUyaxM_iTgQFIpM0IbmXEJWvVmM-5SygZMR4MZUNoAfhL0rR-vLaSRdirP6ZQMXpjmojTku28vfop6e8UpzyXSxBcT-fe-VZhLQ96ZD2IdUG"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-3 left-3 right-3 text-on-primary">
+<span class="font-label-sm text-label-sm uppercase tracking-wider block opacity-90">Lease Record</span>
+<p class="font-label-md text-label-md font-semibold truncate">Commercial Lease 5-Yr Tenancy Agreement</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right 5 Cols: AI Teammate Helper, Actions & Decision Telemetry -->
+<div class="lg:col-span-5 flex flex-col gap-space-lg">
+<!-- AI Teammate Proactive Helper Card -->
+<div class="bg-primary text-on-primary rounded-3xl p-space-xl shadow-lg relative overflow-hidden flex flex-col justify-between">
+<!-- Abstract glowing cyan accent -->
+<div class="absolute -right-12 -top-12 w-48 h-48 rounded-full bg-secondary-container/20 blur-2xl"></div>
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-on-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary-fixed text-[18px]">smart_toy</span>
+</div>
+<span class="font-label-md text-label-md text-primary-fixed tracking-wide uppercase">AI Teammate Brief</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-on-primary/10 text-primary-fixed font-label-sm text-label-sm">Active Acceleration</span>
+</div>
+<p class="font-body-md text-body-md text-on-primary leading-relaxed mb-space-lg">
+            “I’ve compiled your 12-month Paytm Soundbox transaction history into an underwriter brief to expedite your review. Your consistent ₹1.8L–₹2.4L monthly UPI collections serve as positive solvency indicators.”
+          </p>
+<!-- Compiled Soundbox Trend Mini-Chart -->
+<div class="bg-surface-container-lowest/10 p-space-md rounded-2xl mb-space-md backdrop-blur-sm">
+<div class="flex items-center justify-between text-on-primary mb-2">
+<span class="font-label-sm text-label-sm text-primary-fixed">12-Mo Digital Collection Trend</span>
+<span class="font-label-md text-label-md text-secondary-fixed">+18.4% YoY</span>
+</div>
+<!-- Lightweight SVG Sparkline Chart -->
+<svg class="w-full h-16 overflow-visible text-secondary-container" fill="none" viewbox="0 0 320 60" xmlns="http://www.w3.org/2000/svg">
+<path d="M0,45 C25,48 50,38 75,32 C100,26 125,35 150,28 C175,20 200,24 225,18 C250,12 275,15 300,8 L320,6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>
+<path d="M0,45 C25,48 50,38 75,32 C100,26 125,35 150,28 C175,20 200,24 225,18 C250,12 275,15 300,8 L320,6 L320,60 L0,60 Z" fill="currentColor" fill-opacity="0.15"></path>
+<circle cx="320" cy="6" fill="#ffffff" r="4"></circle>
+</svg>
+<div class="flex justify-between text-primary-fixed-dim font-label-sm text-label-sm pt-2">
+<span>Nov 2023</span>
+<span>₹2.35L last month</span>
+<span>Oct 2024</span>
+</div>
+</div>
+</div>
+<!-- Telemetry Pill Footer -->
+<div class="flex items-center gap-2 pt-space-xs text-primary-fixed font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]">bolt</span>
+<span>Dossier ready for 1-click submission</span>
+</div>
+</div>
+<!-- Action Panel: Primary, Secondary, Tertiary Buttons -->
+<div class="bg-surface-container-lowest rounded-3xl p-space-xl shadow-md flex flex-col gap-space-md">
+<h3 class="font-headline-sm text-headline-sm text-primary">Recommended Next Steps</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Complete the guided review prep to advance Rahul’s case to the assigned credit desk.
+        </p>
+<div class="flex flex-col gap-space-sm pt-space-xs">
+<!-- Primary CTA -->
+<button class="w-full flex items-center justify-center gap-space-sm bg-primary-container hover:bg-tertiary-container text-on-primary py-3.5 px-space-md rounded-xl font-title-md text-title-md transition-all duration-200 shadow-sm hover:shadow-md" id="btn-prep" type="button">
+<span class="material-symbols-outlined text-[20px]">assignment_turned_in</span>
+<span>Prepare review package</span>
+</button>
+<!-- Secondary CTA -->
+<button class="w-full flex items-center justify-center gap-space-sm bg-surface-container-high hover:bg-surface-container-highest text-primary py-3 px-space-md rounded-xl font-label-lg text-label-lg transition-colors" id="btn-intel" type="button">
+<span class="material-symbols-outlined text-[20px]">psychology</span>
+<span>View decision intelligence</span>
+</button>
+<!-- Tertiary CTA -->
+<button class="w-full flex items-center justify-center gap-space-sm bg-transparent hover:bg-surface-container text-secondary py-2.5 px-space-md rounded-xl font-label-lg text-label-lg transition-colors" id="btn-docs" type="button">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+<span>Add supplementary revenue documents</span>
+</button>
+</div>
+<div class="pt-space-sm flex items-center justify-center gap-2 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]">lock</span>
+<span>End-to-end encrypted under RBI NBFC guidelines</span>
+</div>
+</div>
+<!-- Human Review Desk Protocol Mini Card -->
+<div class="bg-surface-container-low rounded-3xl p-space-lg shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">support_agent</span>
+</div>
+<div>
+<span class="font-label-md text-label-md text-primary block">Designated Desk: Retail MSME Mumbai</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Lead Underwriter: Priya Sundaram, CFA</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+          No merchant branch visit is mandated. If further details are needed, an SMS ping will be transmitted to Rahul Sharma at +91 98*** **310.
+        </p>
+</div>
+</div>
+</div>
+<!-- Interactive Feedback Toast (Controlled via JS micro-interaction) -->
+<div class="fixed bottom-6 right-6 z-50 bg-primary text-on-primary px-space-lg py-space-md rounded-2xl shadow-xl flex items-center gap-space-md transform transition-all duration-300 translate-y-24 opacity-0 pointer-events-none" id="action-toast">
+<div class="w-8 h-8 rounded-full bg-secondary flex items-center justify-center text-on-secondary">
+<span class="material-symbols-outlined text-[18px]">check</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-primary" id="toast-title">Package Compiled</span>
+<span class="font-body-sm text-body-sm text-primary-fixed-dim" id="toast-msg">Review packet dispatched to Retail MSME Desk.</span>
+</div>
+</div>
+<script>
+    (function() {
+      const toast = document.getElementById('action-toast');
+      const toastTitle = document.getElementById('toast-title');
+      const toastMsg = document.getElementById('toast-msg');
+      let timer;
+
+      function showNotification(title, message) {
+        if (timer) clearTimeout(timer);
+        toastTitle.textContent = title;
+        toastMsg.textContent = message;
+        toast.classList.remove('translate-y-24', 'opacity-0', 'pointer-events-none');
+        toast.classList.add('translate-y-0', 'opacity-100');
+
+        timer = setTimeout(() => {
+          toast.classList.add('translate-y-24', 'opacity-0', 'pointer-events-none');
+          toast.classList.remove('translate-y-0', 'opacity-100');
+        }, 3600);
+      }
+
+      const btnPrep = document.getElementById('btn-prep');
+      if (btnPrep) {
+        btnPrep.addEventListener('click', () => {
+          showNotification('Dossier Prepared', 'Rahul Kirana & General Store dossier compiled with 12-month Soundbox logs.');
+        });
+      }
+
+      const btnIntel = document.getElementById('btn-intel');
+      if (btnIntel) {
+        btnIntel.addEventListener('click', () => {
+          showNotification('Opening Decision Intelligence', 'Loading policy node tree for configured rule R007.');
+        });
+      }
+
+      const btnDocs = document.getElementById('btn-docs');
+      if (btnDocs) {
+        btnDocs.addEventListener('click', () => {
+          showNotification('Upload Drawer Initialized', 'Supplementary document portal activated for GST & electricity utility bills.');
+        });
+      }
+    })();
+  </script>
+</div></main></div></body></html>

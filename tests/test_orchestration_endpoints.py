@@ -1,4 +1,5 @@
 from fastapi.testclient import TestClient
+import pytest
 
 from app.main import app
 
@@ -39,3 +40,111 @@ def test_risk_endpoint_wraps_existing_inference(monkeypatch) -> None:
     assert response.status_code == 200
     assert response.json()["risk_probability"] == 0.6
     assert response.json()["prototype_only"] is True
+
+
+def _journey_result(decision: str, goal_recovery: dict[str, object] | None) -> dict[str, object]:
+    return {
+        "journey_id": "frontend-demo-001",
+        "customer_goal": "Purchase inventory",
+        "requested_amount": 200_000,
+        "risk_signal": {
+            "risk_probability": 0.6,
+            "predicted_risk_class": 1,
+            "model_version": "finmate-default-risk-xgb-v2",
+            "top_risk_factors": [{"feature": "numeric__dti_n", "shap_value": 0.2}],
+            "top_protective_factors": [],
+            "prototype_only": True,
+            "shap_source": "EXISTING_BACKEND_INFERENCE",
+            "is_simulated_journey": True,
+        },
+        "policy_decision": {
+            "decision": decision,
+            "reason_code": "PROTOTYPE_RESULT",
+            "reason": "A deterministic prototype policy result.",
+            "risk_signal": {
+                "risk_probability": 0.6,
+                "predicted_risk_class": 1,
+                "model_version": "finmate-default-risk-xgb-v2",
+            },
+            "required_actions": ["Continue through the governed journey."],
+            "human_review_required": decision == "COMPLEX_REVIEW",
+            "human_review_reason": "Review is required." if decision == "COMPLEX_REVIEW" else None,
+            "policy_version": "prototype-v1",
+            "triggered_rule_ids": ["P001"],
+            "audit_context": {"journey_id": "frontend-demo-001"},
+        },
+        "goal_recovery": goal_recovery,
+        "next_action": "Continue through the governed journey.",
+        "audit": {"policy_version": "prototype-v1", "simulated": True},
+    }
+
+
+@pytest.mark.parametrize(
+    ("customer_id", "decision", "recovery_expected"),
+    [
+        ("eligible-demo", "ELIGIBLE", False),
+        ("missing-info-demo", "MISSING_INFORMATION", False),
+        ("rahul-demo", "COMPLEX_REVIEW", False),
+        ("recovery-demo", "NOT_SUITABLE", True),
+    ],
+)
+def test_frontend_journey_endpoint_proxies_each_governed_n8n_path(
+    monkeypatch, customer_id: str, decision: str, recovery_expected: bool
+) -> None:
+    recovery = None
+    if recovery_expected:
+        recovery = {
+            "recovery_status": "AVAILABLE",
+            "original_goal": "Purchase inventory",
+            "original_requested_amount": 200_000,
+            "original_policy_decision": "NOT_SUITABLE",
+            "recovery_reason_code": "HIGH_RISK_PROTOTYPE_RECOVERY",
+            "recovery_reason": "Controlled prototype alternatives are available.",
+            "available_paths": [],
+            "policy_version": "prototype-v1",
+            "recovery_version": "prototype-recovery-v1",
+            "human_review_required": False,
+            "human_review_reason": None,
+            "triggered_rule_ids": ["R004_HIGH_RISK_RECOVERY"],
+            "audit_context": {"journey_id": "frontend-demo-001"},
+        }
+    calls: list[dict[str, object]] = []
+
+    class FakeN8nResponse:
+        def raise_for_status(self) -> None:
+            return None
+
+        def json(self) -> dict[str, object]:
+            return _journey_result(decision, recovery)
+
+    def fake_post(url: str, *, json: dict[str, object], timeout: float) -> FakeN8nResponse:
+        calls.append({"url": url, "json": json, "timeout": timeout})
+        return FakeN8nResponse()
+
+    monkeypatch.setattr("app.api.v1.endpoints.journey.httpx.post", fake_post)
+    request = {
+        "journey_id": "frontend-demo-001",
+        "customer_id": customer_id,
+        "customer_goal": "Purchase inventory",
+        "requested_amount": 200_000,
+    }
+    with TestClient(app) as client:
+        response = client.post("/api/v1/journeys", json=request)
+
+    assert response.status_code == 200
+    assert response.json()["policy_decision"]["decision"] == decision
+    assert (response.json()["goal_recovery"] is not None) is recovery_expected
+    assert calls[0]["json"] == request
+
+
+def test_frontend_journey_endpoint_allows_local_vite_origin() -> None:
+    with TestClient(app) as client:
+        response = client.options(
+            "/api/v1/journeys",
+            headers={
+                "Origin": "http://localhost:5173",
+                "Access-Control-Request-Method": "POST",
+            },
+        )
+    assert response.status_code == 200
+    assert response.headers["access-control-allow-origin"] == "http://localhost:5173"

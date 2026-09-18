@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-surface-variant":"#444651","on-tertiary-container":"#6a97dc","inverse-on-surface":"#eaf1ff","on-primary-container":"#7893df","secondary-container":"#2bc6ff","on-background":"#0b1c30","surface-container-low":"#eff4ff","secondary":"#006686","on-error":"#ffffff","surface":"#f8f9ff","on-secondary-container":"#004f69","on-error-container":"#93000a","error-container":"#ffdad6","tertiary":"#001938","surface-tint":"#3f5ba3","surface-container-lowest":"#ffffff","on-secondary-fixed":"#001e2b","tertiary-fixed":"#d5e3ff","on-surface":"#0b1c30","on-secondary-fixed-variant":"#004d66","outline-variant":"#c4c6d2","error":"#ba1a1a","secondary-fixed-dim":"#71d2ff","tertiary-container":"#002e5d","surface-container-highest":"#d3e4fe","on-primary-fixed-variant":"#25438a","background":"#f8f9ff","on-tertiary-fixed":"#001b3c","on-tertiary-fixed-variant":"#074786","surface-bright":"#f8f9ff","surface-variant":"#d3e4fe","primary-fixed-dim":"#b3c5ff","inverse-surface":"#213145","outline":"#747682","primary-fixed":"#dae1ff","surface-container-high":"#dce9ff","on-tertiary":"#ffffff","on-primary":"#ffffff","secondary-fixed":"#c0e8ff","primary-container":"#002970","surface-container":"#e5eeff","inverse-primary":"#b3c5ff","primary":"#001645","on-primary-fixed":"#001849","on-secondary":"#ffffff","surface-dim":"#cbdbf5","tertiary-fixed-dim":"#a7c8ff"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{"space-xs":"0.25rem",gutter:"1.25rem","space-md":"1rem","space-sm":"0.5rem","space-xl":"2.25rem",margin:"1.5rem","space-lg":"1.5rem"},fontFamily:{"headline-sm":["Plus Jakarta Sans"],"display-lg":["Plus Jakarta Sans"],"body-sm":["Inter"],"label-sm":["Inter"],"body-md":["Inter"],"label-md":["Inter"],"headline-md":["Plus Jakarta Sans"],"title-md":["Inter"],"headline-lg":["Plus Jakarta Sans"],"display-lg-mobile":["Plus Jakarta Sans"],"label-lg":["Inter"],"body-lg":["Inter"]},fontSize:{"headline-sm":["18px",{lineHeight:"26px",fontWeight:"600"}],"display-lg":["40px",{lineHeight:"48px",letterSpacing:"-0.02em",fontWeight:"700"}],"body-sm":["12px",{lineHeight:"18px",fontWeight:"400"}],"label-sm":["11px",{lineHeight:"14px",letterSpacing:"0.03em",fontWeight:"500"}],"body-md":["14px",{lineHeight:"20px",fontWeight:"400"}],"label-md":["12px",{lineHeight:"16px",letterSpacing:"0.02em",fontWeight:"600"}],"headline-md":["22px",{lineHeight:"30px",fontWeight:"600"}],"title-md":["16px",{lineHeight:"24px",fontWeight:"600"}],"headline-lg":["28px",{lineHeight:"36px",letterSpacing:"-0.01em",fontWeight:"600"}],"display-lg-mobile":["30px",{lineHeight:"36px",letterSpacing:"-0.015em",fontWeight:"700"}],"label-lg":["14px",{lineHeight:"20px",letterSpacing:"0.01em",fontWeight:"500"}],"body-lg":["16px",{lineHeight:"24px",fontWeight:"400"}]}}}};</script></head><body class="bg-background font-body-md text-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between overflow-y-auto"><div class="flex flex-col"><div class="p-space-lg flex flex-col gap-space-xs"><div class="flex items-center gap-space-sm"><img alt="FinMate Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1X-4OlLWNVDyqCv7cMT1HahhbFrUEscACmuvTWSvl_apOMzLK1LPI2wdCZPA5SgRNTDN13kiRyWhS11h_6MCjp94B3ey026aVIwuJE3UOui1RiSPophIo6jcuwGaFOCcS5xgemZE_OAh-FdMPBviYo2zmdxxoLJ222gCLEEnp-SCQvzijnbRqOkd44tAQLkvxVqTnfVRbUypDg_VVwT25WpC2H8mAcHf-wN7BV3-j57PCiYhe-3mJOtNHI"/><span class="font-headline-sm text-headline-sm text-primary tracking-tight">FinMate</span></div><p class="font-label-sm text-label-sm text-on-surface-variant">Your AI teammate for financial journeys</p></div><nav class="flex flex-col gap-1 px-space-md py-space-xs" data-active-classes="bg-surface-container-high text-primary font-semibold"><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="new-journey" href="#/new-journey"><span class="material-symbols-outlined text-[20px]">add_circle</span><span class="font-body-md text-body-md">New Journey</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="journey-analysis" href="#/analysis"><span class="material-symbols-outlined text-[20px]">insights</span><span class="font-body-md text-body-md">Journey Analysis</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="goal-recovery" href="#/recovery"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[20px]">healing</span><span class="font-body-md text-body-md">Goal Recovery</span></div><span class="px-2 py-0.5 rounded-full bg-secondary-container/20 text-on-secondary-container font-label-sm text-label-sm uppercase tracking-wider">Core AI</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="decision-intelligence" href="#/intelligence"><span class="material-symbols-outlined text-[20px]">psychology</span><span class="font-body-md text-body-md">Decision Intelligence</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="human-review" href="#/review"><span class="material-symbols-outlined text-[20px]">rate_review</span><span class="font-body-md text-body-md">Human Review</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="journey-history" href="#/history"><span class="material-symbols-outlined text-[20px]">history</span><span class="font-body-md text-body-md">Journey History</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="audit-governance" href="#/audit"><span class="material-symbols-outlined text-[20px]">gavel</span><span class="font-body-md text-body-md">Audit &amp; Governance</span></a></nav></div><div class="p-space-md m-space-md rounded-xl bg-surface-container-low flex flex-col gap-space-sm"><div class="flex items-center justify-between"><div class="flex items-center gap-2"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span></span><span class="font-label-md text-label-md text-primary">AI Teammate Active</span></div><span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">Prototype</span></div><div class="rounded-lg bg-surface-container-lowest p-space-sm"><p class="font-label-sm text-label-sm text-on-surface-variant leading-relaxed">AI orchestrates. ML + Rules govern. Humans oversee.</p></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 px-space-lg flex items-center justify-between"><div class="flex items-center gap-space-md"><img alt="FinMate Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1X-4OlLWNVDyqCv7cMT1HahhbFrUEscACmuvTWSvl_apOMzLK1LPI2wdCZPA5SgRNTDN13kiRyWhS11h_6MCjp94B3ey026aVIwuJE3UOui1RiSPophIo6jcuwGaFOCcS5xgemZE_OAh-FdMPBviYo2zmdxxoLJ222gCLEEnp-SCQvzijnbRqOkd44tAQLkvxVqTnfVRbUypDg_VVwT25WpC2H8mAcHf-wN7BV3-j57PCiYhe-3mJOtNHI"/><div class="flex items-center gap-2 text-on-surface-variant font-body-sm text-body-sm"><span class="text-primary font-label-md text-label-md">FinMate Console</span><span>/</span><span>Journey Management</span></div><div class="hidden xl:flex items-center gap-1.5 ml-space-sm"><button class="px-2.5 py-1 rounded-full bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] text-on-surface font-label-sm text-label-sm hover:bg-surface-container transition-colors" type="button">Rahul · ₹5L Review</button><button class="px-2.5 py-1 rounded-full bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] text-on-surface font-label-sm text-label-sm hover:bg-surface-container transition-colors" type="button">Ananya · ₹50k Eligible</button><button class="px-2.5 py-1 rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm hover:bg-surface-container-highest transition-colors" type="button">Meera · ₹2L Goal Recovery</button><button class="px-2.5 py-1 rounded-full bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] text-on-surface font-label-sm text-label-sm hover:bg-surface-container transition-colors" type="button">Vikram · ₹75k Missing Info</button></div></div><div class="flex items-center gap-space-md"><span class="px-2.5 py-1 rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm font-medium">Simulated Data</span><button class="flex items-center text-on-surface-variant hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">help_outline</span></button><button class="relative flex items-center text-on-surface-variant hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute -top-1 -right-1 h-2 w-2 rounded-full bg-secondary"></span></button><div class="flex items-center gap-space-sm pl-space-xs"><div class="flex flex-col text-right"><span class="font-label-md text-label-md text-primary leading-tight">Meera Patel</span><span class="font-label-sm text-label-sm text-on-surface-variant leading-tight">Merchant</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 bg-surface px-space-lg py-space-md min-h-screen"><div class="flex flex-col w-full gap-space-lg pb-space-xl">
+<!-- Top Governance & Cryptographic Integrity Ribbon -->
+<div class="w-full flex flex-col md:flex-row md:items-center justify-between gap-space-md p-space-md bg-surface-container-lowest rounded-xl shadow-sm">
+<div class="flex flex-col sm:flex-row sm:items-center gap-space-sm sm:gap-space-md">
+<div class="flex items-center gap-2">
+<span class="inline-flex h-2.5 w-2.5 rounded-full bg-secondary"></span>
+<span class="font-label-md text-label-md text-primary tracking-wide uppercase">Audit Chain Verified</span>
+</div>
+<span class="hidden sm:inline text-outline-variant">•</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant font-mono">SHA-256: 7f83b1657ff1fc53b92dc18148a1d65dfc2d4b1fa3d677284addd200126d9069</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="px-2.5 py-1 rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm font-semibold tracking-wider uppercase">Simulation / Prototype Environment</span>
+<button class="px-3 py-1 rounded-lg bg-surface-container-low hover:bg-surface-container text-primary font-label-sm text-label-sm flex items-center gap-1.5 transition-colors" onclick="exportAuditLog()" type="button">
+<span class="material-symbols-outlined text-[16px]">file_download</span>
+        Export Hash Log
+      </button>
+</div>
+</div>
+<!-- Page Header & Key Tenet Banner -->
+<div class="w-full rounded-2xl bg-surface-container-lowest shadow-sm p-space-lg md:p-space-xl flex flex-col xl:flex-row xl:items-center justify-between gap-space-lg relative overflow-hidden">
+<div class="absolute right-0 top-0 w-96 h-full bg-gradient-to-l from-surface-container-low/60 to-transparent pointer-events-none"></div>
+<div class="flex flex-col gap-space-xs max-w-3xl relative z-10">
+<div class="flex items-center gap-space-sm">
+<span class="px-2.5 py-0.5 rounded-full bg-primary text-on-primary font-label-sm text-label-sm font-semibold uppercase tracking-widest">ISO/IEC 42001 Aligned</span>
+<span class="px-2.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm font-medium">Deterministic Trail Active</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-primary tracking-tight">Journey Audit &amp; Governance</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Complete deterministic trail of model risk signals, SHAP attributions, policy engine executions, and human reviews.</p>
+</div>
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-space-md relative z-10">
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-1 min-w-[210px]">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Governed Pipeline</span>
+<span class="font-headline-sm text-headline-sm text-primary flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-[20px]">verified_user</span>
+          100% Deterministic
+        </span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">0 Non-audited heuristics</span>
+</div>
+<div class="p-space-md rounded-xl bg-primary-container text-on-primary flex flex-col justify-between min-w-[230px]">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-primary-fixed uppercase tracking-wider">Compliance Pillar</span>
+<span class="material-symbols-outlined text-secondary-container text-[18px]">policy</span>
+</div>
+<p class="font-label-md text-label-md mt-2 leading-relaxed text-surface">"AI orchestrates. ML + Rules govern. Humans oversee."</p>
+</div>
+</div>
+</div>
+<!-- Selected Journey Telemetry Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- Journey Identifiers -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Session Identifiers</span>
+<span class="material-symbols-outlined text-secondary text-[20px]">fingerprint</span>
+</div>
+<div class="mt-space-md space-y-1">
+<div class="flex items-center justify-between text-body-sm">
+<span class="text-on-surface-variant">Journey ID</span>
+<span class="font-mono text-primary font-semibold">meera-demo-001</span>
+</div>
+<div class="flex items-center justify-between text-body-sm">
+<span class="text-on-surface-variant">Customer</span>
+<span class="font-mono text-on-surface">recovery-demo-meera</span>
+</div>
+<div class="flex items-center justify-between text-body-sm">
+<span class="text-on-surface-variant">Timestamp</span>
+<span class="font-mono text-on-surface-variant text-[11px]">2024-10-24 14:32:08 IST</span>
+</div>
+</div>
+<div class="mt-space-sm pt-space-xs flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-[16px]">qr_code_2</span>
+<span class="font-label-sm text-label-sm text-secondary font-medium">Merchant UPI Ecosystem Trace</span>
+</div>
+</div>
+<!-- Model Execution Spec -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Risk Inference Engine</span>
+<span class="material-symbols-outlined text-primary text-[20px]">memory</span>
+</div>
+<div class="mt-space-md space-y-1">
+<div class="flex items-center justify-between text-body-sm">
+<span class="text-on-surface-variant">Model</span>
+<span class="font-mono text-primary font-medium text-[11px] truncate max-w-[140px]" title="finmate-default-risk-xgb-v2">xgb-v2 (XGBoost)</span>
+</div>
+<div class="flex items-center justify-between text-body-sm">
+<span class="text-on-surface-variant">Policy Ver</span>
+<span class="font-mono text-primary font-semibold">prototype-v1</span>
+</div>
+<div class="flex items-center justify-between text-body-sm">
+<span class="text-on-surface-variant">Drift Monitor</span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">PSI: 0.04 (Stable)</span>
+</div>
+</div>
+<div class="mt-space-sm pt-space-xs flex items-center gap-1.5">
+<span class="material-symbols-outlined text-on-surface-variant text-[16px]">analytics</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Inference Latency: 184ms</span>
+</div>
+</div>
+<!-- Probability & Calibration -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Calculated Risk Signal</span>
+<span class="px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm font-semibold">Elevated</span>
+</div>
+<div class="mt-space-sm flex items-baseline gap-2">
+<span class="font-display-lg text-display-lg text-primary">74.3%</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Default Prob</span>
+</div>
+<div class="w-full bg-surface-container-high rounded-full h-2 overflow-hidden mt-1">
+<div class="bg-error h-full rounded-full transition-all duration-700" style="width: 74.3%"></div>
+</div>
+<div class="mt-space-sm pt-space-xs flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Risk Ceiling: 45.0%</span>
+<span class="font-label-sm text-label-sm text-error font-semibold">+29.3% Delta</span>
+</div>
+</div>
+<!-- Routing & Governance State -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Decision Routing State</span>
+<span class="material-symbols-outlined text-secondary text-[20px]">alt_route</span>
+</div>
+<div class="mt-space-md space-y-1.5">
+<div class="flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm line-through">PRIMARY</span>
+<span class="material-symbols-outlined text-on-surface-variant text-[14px]">arrow_forward</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-primary font-label-sm text-label-sm font-semibold">GOAL_RECOVERY</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Triggered:</span>
+<span class="px-1.5 py-0.5 rounded bg-primary-container text-on-primary font-mono text-[11px]">R001</span>
+<span class="px-1.5 py-0.5 rounded bg-primary-container text-on-primary font-mono text-[11px]">R003</span>
+</div>
+</div>
+<div class="mt-space-sm pt-space-xs flex items-center gap-1.5">
+<span class="inline-flex h-2 w-2 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Pre-screened · Auto-Recovery Active</span>
+</div>
+</div>
+</div>
+<!-- Primary Working Area: 8 Columns Timeline & Interpretability + 4 Columns Deep Dives -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- Left 8 Columns: Timeline + Explainability Deck -->
+<div class="lg:col-span-8 flex flex-col gap-space-lg">
+<!-- Interactive Deterministic Audit Timeline -->
+<div class="p-space-lg rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<div>
+<h2 class="font-headline-md text-headline-md text-primary">Deterministic Audit Timeline</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Sequential, immutable execution trace of customer input, context ingestion, inference, and policy resolution.</p>
+</div>
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">lock_clock</span>
+<span class="font-mono text-label-sm text-label-sm">8 Events Logged</span>
+</div>
+</div>
+<div class="relative pl-6 space-y-6 mt-space-sm before:content-[''] before:absolute before:left-3 before:top-3 before:bottom-3 before:w-0.5 before:bg-surface-container-high">
+<!-- Step 1 -->
+<div class="relative flex items-start gap-space-md group">
+<div class="absolute -left-6 mt-1 flex items-center justify-center w-6 h-6 rounded-full bg-surface-container-lowest shadow-sm">
+<span class="w-2.5 h-2.5 rounded-full bg-primary group-hover:scale-125 transition-transform"></span>
+</div>
+<div class="w-full p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors flex flex-col gap-1">
+<div class="flex flex-wrap items-center justify-between gap-2">
+<div class="flex items-center gap-2">
+<span class="font-mono font-label-md text-label-md text-primary">14:32:01.104</span>
+<span class="font-title-md text-title-md text-primary">Goal Received</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-primary font-label-sm text-label-sm">Natural Language Ingress</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface mt-1 italic">"I need ₹2,00,000 to purchase inventory"</p>
+<div class="mt-2 flex flex-wrap items-center gap-space-sm text-body-sm text-on-surface-variant">
+<span>Requested: <strong class="text-primary font-semibold font-mono">₹2,00,000</strong></span>
+<span>•</span>
+<span>Category: Working Capital</span>
+<span>•</span>
+<span>Intent Confidence: 0.982</span>
+</div>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="relative flex items-start gap-space-md group">
+<div class="absolute -left-6 mt-1 flex items-center justify-center w-6 h-6 rounded-full bg-surface-container-lowest shadow-sm">
+<span class="w-2.5 h-2.5 rounded-full bg-primary group-hover:scale-125 transition-transform"></span>
+</div>
+<div class="w-full p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors flex flex-col gap-1">
+<div class="flex flex-wrap items-center justify-between gap-2">
+<div class="flex items-center gap-2">
+<span class="font-mono font-label-md text-label-md text-primary">14:32:02.342</span>
+<span class="font-title-md text-title-md text-primary">Customer Context Ingested</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-primary font-label-sm text-label-sm">Banking &amp; UPI Ledger</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface">Merchant QR tenure 28 months, 99.4% on-time settlement rate over past 24 billing cycles.</p>
+<div class="mt-2 grid grid-cols-2 sm:grid-cols-4 gap-2 pt-2 bg-surface-container-lowest p-space-sm rounded-lg">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Avg Monthly Sales</span>
+<span class="font-mono font-title-md text-title-md text-primary">₹1,42,500</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Daily UPI Tx Vol</span>
+<span class="font-mono font-title-md text-title-md text-primary">38.4 tx/day</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Active Outstandings</span>
+<span class="font-mono font-title-md text-title-md text-primary">₹68,000</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Credit Bureau Tier</span>
+<span class="font-mono font-title-md text-title-md text-primary">695 (Fair)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="relative flex items-start gap-space-md group">
+<div class="absolute -left-6 mt-1 flex items-center justify-center w-6 h-6 rounded-full bg-surface-container-lowest shadow-sm">
+<span class="w-2.5 h-2.5 rounded-full bg-error group-hover:scale-125 transition-transform"></span>
+</div>
+<div class="w-full p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors flex flex-col gap-1">
+<div class="flex flex-wrap items-center justify-between gap-2">
+<div class="flex items-center gap-2">
+<span class="font-mono font-label-md text-label-md text-primary">14:32:04.019</span>
+<span class="font-title-md text-title-md text-primary">Risk Evaluated</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm font-semibold">Default Risk Spike</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface">XGBoost model inference yielded <strong class="text-error font-semibold">74.3% default probability</strong> against the current requested exposure profile.</p>
+<div class="mt-2 flex items-center gap-2 text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-[18px]">insights</span>
+<span>Hyperparameters validated against calibrated threshold model v2.1.8.</span>
+</div>
+</div>
+</div>
+<!-- Step 4 -->
+<div class="relative flex items-start gap-space-md group">
+<div class="absolute -left-6 mt-1 flex items-center justify-center w-6 h-6 rounded-full bg-surface-container-lowest shadow-sm">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary group-hover:scale-125 transition-transform"></span>
+</div>
+<div class="w-full p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors flex flex-col gap-1">
+<div class="flex flex-wrap items-center justify-between gap-2">
+<div class="flex items-center gap-2">
+<span class="font-mono font-label-md text-label-md text-primary">14:32:05.120</span>
+<span class="font-title-md text-title-md text-primary">SHAP Attributions Generated</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-medium">Explainability Math</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface">Feature vectors directly attributed the elevated risk to loan-to-inflow compression and existing debt service coverage.</p>
+<div class="mt-2 space-y-2 bg-surface-container-lowest p-space-sm rounded-lg">
+<div class="flex items-center justify-between text-body-sm">
+<span class="text-on-surface-variant font-medium">Requested Principal vs Cashflow Ratio</span>
+<span class="font-mono text-error font-semibold">+0.38 SHAP (Pushing High Risk)</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-error h-full rounded-full" style="width: 85%"></div>
+</div>
+<div class="flex items-center justify-between text-body-sm pt-1">
+<span class="text-on-surface-variant font-medium">Debt-to-Income (DTI) Outstandings</span>
+<span class="font-mono text-error font-semibold">+0.22 SHAP (Pushing High Risk)</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-error h-full rounded-full" style="width: 60%"></div>
+</div>
+<div class="flex items-center justify-between text-body-sm pt-1">
+<span class="text-on-surface-variant font-medium">QR Merchant Settlement Tenure (28 Mo)</span>
+<span class="font-mono text-secondary font-semibold">-0.19 SHAP (Mitigating Protective Signal)</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 45%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Step 5 -->
+<div class="relative flex items-start gap-space-md group">
+<div class="absolute -left-6 mt-1 flex items-center justify-center w-6 h-6 rounded-full bg-surface-container-lowest shadow-sm">
+<span class="w-2.5 h-2.5 rounded-full bg-primary group-hover:scale-125 transition-transform"></span>
+</div>
+<div class="w-full p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors flex flex-col gap-1">
+<div class="flex flex-wrap items-center justify-between gap-2">
+<div class="flex items-center gap-2">
+<span class="font-mono font-label-md text-label-md text-primary">14:32:06.438</span>
+<span class="font-title-md text-title-md text-primary">Policy Evaluated</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-primary font-label-sm text-label-sm">Deterministic Guardrails</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface">Rules engine strictly applied hard compliance guardrails <span class="font-mono font-semibold text-primary">R001</span> &amp; <span class="font-mono font-semibold text-primary">R003</span>.</p>
+<div class="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-2 text-body-sm">
+<div class="p-space-sm bg-surface-container-lowest rounded-lg">
+<span class="font-mono font-semibold text-primary block">RULE_R001 [MAX_MONTHLY_DEBT_RATIO]</span>
+<span class="text-on-surface-variant text-[12px]">Cap total installment at 40% of confirmed monthly median UPI inflow. Current request breached at 61.2%.</span>
+</div>
+<div class="p-space-sm bg-surface-container-lowest rounded-lg">
+<span class="font-mono font-semibold text-primary block">RULE_R003 [TENURE_PRINCIPAL_RATIO]</span>
+<span class="text-on-surface-variant text-[12px]">Unsecured micro-tenure requires cumulative exposure ceiling ≤ ₹1,20,000 for tier 2 merchant accounts.</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Step 6 -->
+<div class="relative flex items-start gap-space-md group">
+<div class="absolute -left-6 mt-1 flex items-center justify-center w-6 h-6 rounded-full bg-surface-container-lowest shadow-sm">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary group-hover:scale-125 transition-transform"></span>
+</div>
+<div class="w-full p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors flex flex-col gap-1">
+<div class="flex flex-wrap items-center justify-between gap-2">
+<div class="flex items-center gap-2">
+<span class="font-mono font-label-md text-label-md text-primary">14:32:07.012</span>
+<span class="font-title-md text-title-md text-primary">Decision Routed</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">Branch: NOT_SUITABLE</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface">Primary product ineligible. Rather than a hard decline, automated workflow invoked the FinMate Goal Recovery Engine.</p>
+</div>
+</div>
+<!-- Step 7 -->
+<div class="relative flex items-start gap-space-md group">
+<div class="absolute -left-6 mt-1 flex items-center justify-center w-6 h-6 rounded-full bg-secondary-container group-hover:scale-125 transition-transform">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+</div>
+<div class="w-full p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors flex flex-col gap-1">
+<div class="flex flex-wrap items-center justify-between gap-2">
+<div class="flex items-center gap-2">
+<span class="font-mono font-label-md text-label-md text-primary">14:32:08.511</span>
+<span class="font-title-md text-title-md text-primary">Recovery Evaluated &amp; Governed</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container/30 text-on-secondary-container font-label-sm text-label-sm font-semibold">3 Governed Paths Generated</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface">3 viable alternative paths dispatched to consumer interface: Right-sized immediate facility, Phased dual-tranche, and Remedial credit builder coaching.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Feature Attribution & Explainability Chart -->
+<div class="p-space-lg rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<h3 class="font-headline-sm text-headline-sm text-primary">Model Attribution &amp; SHAP Summary</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Directional impact on the 74.3% calculated probability</p>
+</div>
+<span class="px-2 py-1 rounded bg-surface-container text-primary font-mono text-label-sm text-label-sm">Base Rate: 28.1%</span>
+</div>
+<!-- Inline SVG Waterfall / Diverging Bar Representation -->
+<div class="w-full overflow-hidden py-space-xs">
+<svg class="w-full h-auto" preserveaspectratio="xMidYMid meet" viewbox="0 0 700 190">
+<!-- Center line (neutral) -->
+<line stroke="#c4c6d2" stroke-dasharray="3 3" stroke-width="1.5" x1="350" x2="350" y1="10" y2="180"></line>
+<text fill="#747682" font-family="Inter" font-size="10" text-anchor="middle" x="350" y="8">Neutral (0.00)</text>
+<!-- Row 1: Exposure Requested vs Median Flow -->
+<text fill="#0b1c30" font-family="Inter" font-size="12" font-weight="500" x="15" y="42">Requested Exposure vs Flow</text>
+<rect fill="#ba1a1a" height="18" opacity="0.9" rx="4" width="220" x="350" y="30"></rect>
+<text fill="#ba1a1a" font-family="Inter" font-size="11" font-weight="600" x="578" y="44">+0.38</text>
+<!-- Row 2: Debt-to-Inflow Ratio -->
+<text fill="#0b1c30" font-family="Inter" font-size="12" font-weight="500" x="15" y="77">Current Debt Obligations (DTI)</text>
+<rect fill="#ba1a1a" height="18" opacity="0.9" rx="4" width="135" x="350" y="65"></rect>
+<text fill="#ba1a1a" font-family="Inter" font-size="11" font-weight="600" x="492" y="79">+0.22</text>
+<!-- Row 3: Credit Bureau Score (Fair) -->
+<text fill="#0b1c30" font-family="Inter" font-size="12" font-weight="500" x="15" y="112">CIBIL / Experian Baseline (695)</text>
+<rect fill="#ba1a1a" height="18" opacity="0.9" rx="4" width="55" x="350" y="100"></rect>
+<text fill="#ba1a1a" font-family="Inter" font-size="11" font-weight="600" x="412" y="114">+0.09</text>
+<!-- Row 4: Settlement Regularity (Protective) -->
+<text fill="#0b1c30" font-family="Inter" font-size="12" font-weight="500" x="15" y="147">Merchant QR Tenure (28 Mo)</text>
+<rect fill="#006686" height="18" opacity="0.9" rx="4" width="115" x="235" y="135"></rect>
+<text fill="#006686" font-family="Inter" font-size="11" font-weight="600" x="195" y="149">-0.19</text>
+<!-- Row 5: Settlement Rate (99.4%) -->
+<text fill="#0b1c30" font-family="Inter" font-size="12" font-weight="500" x="15" y="178">99.4% Settlement Punctuality</text>
+<rect fill="#006686" height="14" opacity="0.9" rx="4" width="80" x="270" y="166"></rect>
+<text fill="#006686" font-family="Inter" font-size="11" font-weight="600" x="230" y="177">-0.11</text>
+</svg>
+</div>
+<div class="flex items-center justify-between text-label-sm text-label-sm pt-2 bg-surface-container-low p-space-sm rounded-lg text-on-surface-variant">
+<span class="flex items-center gap-1.5">
+<span class="w-3 h-3 rounded bg-error inline-block"></span> Positive SHAP pushes probability towards Default
+          </span>
+<span class="flex items-center gap-1.5">
+<span class="w-3 h-3 rounded bg-secondary inline-block"></span> Negative SHAP pushes probability towards Approvals
+          </span>
+</div>
+</div>
+</div>
+<!-- Right 4 Columns: Governed Alternative Paths & Raw Payload Viewer -->
+<div class="lg:col-span-4 flex flex-col gap-space-lg">
+<!-- Governed Paths Summary Card -->
+<div class="p-space-lg rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-primary">Governed Recovery Paths</h3>
+<span class="material-symbols-outlined text-secondary text-[20px]">healing</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Generated deterministically based on maximum permissible DTI under Policy <code class="font-mono text-primary font-semibold">prototype-v1</code>.</p>
+<div class="space-y-space-sm">
+<!-- Path 1 -->
+<div class="p-space-sm rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-mono font-label-md text-label-md text-primary">RIGHT_SIZED_100K</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container/20 text-on-secondary-container font-label-sm text-label-sm font-semibold">Recommended</span>
+</div>
+<div class="font-title-md text-title-md text-primary">₹1,00,000 Micro-Facility</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Brings monthly EMI within 32% of verifiable daily settlements. Instant disbursement available.</p>
+</div>
+<!-- Path 2 -->
+<div class="p-space-sm rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-mono font-label-md text-label-md text-primary">PHASED_80K_120K</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-primary font-label-sm text-label-sm">Milestone</span>
+</div>
+<div class="font-title-md text-title-md text-primary">Two-Tranche ₹2,00,000</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">₹80,000 upfront; second tranche of ₹1,20,000 released upon 60 days on-time repayments.</p>
+</div>
+<!-- Path 3 -->
+<div class="p-space-sm rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-mono font-label-md text-label-md text-primary">REMEDIAL_COACHING</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm">Educational</span>
+</div>
+<div class="font-title-md text-title-md text-primary">90-Day Credit Boost</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Guided balance payoff and GST invoice reconciliation to re-qualify for ₹2.5L in Q1 2025.</p>
+</div>
+</div>
+</div>
+<!-- Raw JSON Payload Viewer with Interactive Copy & Collapse -->
+<div class="rounded-2xl bg-surface-container-lowest shadow-sm overflow-hidden flex flex-col">
+<div class="p-space-md bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">code</span>
+<span class="font-mono font-label-md text-label-md text-primary">payload_canonical.json</span>
+</div>
+<div class="flex items-center gap-1.5">
+<button class="px-2.5 py-1 rounded bg-surface-container-lowest hover:bg-surface-container text-primary font-label-sm text-label-sm flex items-center gap-1 transition-colors" id="copyBtn" onclick="copyJsonPayload()" type="button">
+<span class="material-symbols-outlined text-[14px]">content_copy</span>
+<span id="copyText">Copy</span>
+</button>
+<button class="p-1 rounded bg-surface-container-lowest hover:bg-surface-container text-on-surface-variant transition-colors" onclick="toggleJsonView()" type="button">
+<span class="material-symbols-outlined text-[16px]" id="expandIcon">unfold_less</span>
+</button>
+</div>
+</div>
+<div class="p-space-md bg-[#001938] text-[#dae1ff] font-mono text-body-sm overflow-x-auto transition-all duration-300" id="jsonContainer">
+<pre class="leading-relaxed"><code id="rawPayload">{
+  <span class="text-[#71d2ff]">"journey_id"</span>: <span class="text-[#a7c8ff]">"meera-demo-001"</span>,
+  <span class="text-[#71d2ff]">"customer_id"</span>: <span class="text-[#a7c8ff]">"recovery-demo-meera"</span>,
+  <span class="text-[#71d2ff]">"session_timestamp"</span>: <span class="text-[#a7c8ff]">"2024-10-24T14:32:08.511+05:30"</span>,
+  <span class="text-[#71d2ff]">"decision"</span>: <span class="text-[#ffdad6] font-semibold">"GOAL_RECOVERY"</span>,
+  <span class="text-[#71d2ff]">"pre_screen_status"</span>: <span class="text-[#a7c8ff]">"AUTOMATED_RECOVERY_ACTIVE"</span>,
+  <span class="text-[#71d2ff]">"model_metadata"</span>: {
+    <span class="text-[#71d2ff]">"model_name"</span>: <span class="text-[#a7c8ff]">"finmate-default-risk-xgb-v2"</span>,
+    <span class="text-[#71d2ff]">"risk_probability"</span>: <span class="text-[#ffdad6]">0.743</span>,
+    <span class="text-[#71d2ff]">"inference_latency_ms"</span>: <span class="text-[#a7c8ff]">184</span>
+  },
+  <span class="text-[#71d2ff]">"governed_by"</span>: <span class="text-[#a7c8ff]">"prototype-v1"</span>,
+  <span class="text-[#71d2ff]">"rules_triggered"</span>: [
+    <span class="text-[#a7c8ff]">"R001"</span>,
+    <span class="text-[#a7c8ff]">"R003"</span>
+  ],
+  <span class="text-[#71d2ff]">"paths_available"</span>: [
+    <span class="text-[#71d2ff] font-semibold">"RIGHT_SIZED_100K"</span>,
+    <span class="text-[#71d2ff] font-semibold">"PHASED_80K_120K"</span>,
+    <span class="text-[#71d2ff] font-semibold">"REMEDIAL_COACHING"</span>
+  ],
+  <span class="text-[#71d2ff]">"compliance_signature"</span>: <span class="text-[#a7c8ff]">"SHA256:7f83b1657ff1fc53b92dc181..."</span>
+}</code></pre>
+</div>
+<div class="p-space-sm bg-surface-container-low flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span>Format: JSON RFC 8259</span>
+<span class="flex items-center gap-1 text-secondary font-medium">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+            Schema Validated
+          </span>
+</div>
+</div>
+<!-- Human Overseer Attestation -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-xs">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">verified</span>
+<span class="font-label-md text-label-md text-primary">Human-in-the-Loop Safeguard</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          This simulation executed under automated pre-screen rules. Any disbursement above ₹1,00,000 will be held in escrow until authenticated by an NBF-authorized underwriting officer.
+        </p>
+<div class="mt-2 pt-2 flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Assigned Auditor: System Auto-Regulator</span>
+<span class="font-mono text-label-sm text-label-sm text-primary font-semibold">NODE-IN-BLR-04</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  function copyJsonPayload() {
+    const code = document.getElementById('rawPayload').innerText;
+    navigator.clipboard.writeText(code).then(() => {
+      const copyText = document.getElementById('copyText');
+      copyText.innerText = 'Copied!';
+      setTimeout(() => {
+        copyText.innerText = 'Copy';
+      }, 2000);
+    });
+  }
+
+  function toggleJsonView() {
+    const container = document.getElementById('jsonContainer');
+    const icon = document.getElementById('expandIcon');
+    if (container.classList.contains('hidden')) {
+      container.classList.remove('hidden');
+      icon.innerText = 'unfold_less';
+    } else {
+      container.classList.add('hidden');
+      icon.innerText = 'unfold_more';
+    }
+  }
+
+  function exportAuditLog() {
+    const hash = "7f83b1657ff1fc53b92dc18148a1d65dfc2d4b1fa3d677284addd200126d9069";
+    const alertBanner = document.createElement('div');
+    alertBanner.className = 'fixed bottom-6 right-6 bg-primary text-on-primary px-4 py-3 rounded-xl shadow-xl z-50 flex items-center gap-3 transition-all transform translate-y-0';
+    alertBanner.innerHTML = `
+      <span class="material-symbols-outlined text-secondary-container">check_circle</span>
+      <div class="flex flex-col">
+        <span class="font-label-md text-label-md">Audit Log Exported</span>
+        <span class="font-body-sm text-body-sm font-mono opacity-80">Digest: ${hash.substring(0, 16)}...</span>
+      </div>
+    `;
+    document.body.appendChild(alertBanner);
+    setTimeout(() => {
+      alertBanner.classList.add('opacity-0', 'translate-y-2');
+      setTimeout(() => alertBanner.remove(), 400);
+    }, 3000);
+  }
+</script></main></div></body></html>

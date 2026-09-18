@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-surface-variant":"#444651","on-tertiary-container":"#6a97dc","inverse-on-surface":"#eaf1ff","on-primary-container":"#7893df","secondary-container":"#2bc6ff","on-background":"#0b1c30","surface-container-low":"#eff4ff","secondary":"#006686","on-error":"#ffffff","surface":"#f8f9ff","on-secondary-container":"#004f69","on-error-container":"#93000a","error-container":"#ffdad6","tertiary":"#001938","surface-tint":"#3f5ba3","surface-container-lowest":"#ffffff","on-secondary-fixed":"#001e2b","tertiary-fixed":"#d5e3ff","on-surface":"#0b1c30","on-secondary-fixed-variant":"#004d66","outline-variant":"#c4c6d2","error":"#ba1a1a","secondary-fixed-dim":"#71d2ff","tertiary-container":"#002e5d","surface-container-highest":"#d3e4fe","on-primary-fixed-variant":"#25438a","background":"#f8f9ff","on-tertiary-fixed":"#001b3c","on-tertiary-fixed-variant":"#074786","surface-bright":"#f8f9ff","surface-variant":"#d3e4fe","primary-fixed-dim":"#b3c5ff","inverse-surface":"#213145","outline":"#747682","primary-fixed":"#dae1ff","surface-container-high":"#dce9ff","on-tertiary":"#ffffff","on-primary":"#ffffff","secondary-fixed":"#c0e8ff","primary-container":"#002970","surface-container":"#e5eeff","inverse-primary":"#b3c5ff","primary":"#001645","on-primary-fixed":"#001849","on-secondary":"#ffffff","surface-dim":"#cbdbf5","tertiary-fixed-dim":"#a7c8ff"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{"space-xs":"0.25rem",gutter:"1.25rem","space-md":"1rem","space-sm":"0.5rem","space-xl":"2.25rem",margin:"1.5rem","space-lg":"1.5rem"},fontFamily:{"headline-sm":["Plus Jakarta Sans"],"display-lg":["Plus Jakarta Sans"],"body-sm":["Inter"],"label-sm":["Inter"],"body-md":["Inter"],"label-md":["Inter"],"headline-md":["Plus Jakarta Sans"],"title-md":["Inter"],"headline-lg":["Plus Jakarta Sans"],"display-lg-mobile":["Plus Jakarta Sans"],"label-lg":["Inter"],"body-lg":["Inter"]},fontSize:{"headline-sm":["18px",{lineHeight:"26px",fontWeight:"600"}],"display-lg":["40px",{lineHeight:"48px",letterSpacing:"-0.02em",fontWeight:"700"}],"body-sm":["12px",{lineHeight:"18px",fontWeight:"400"}],"label-sm":["11px",{lineHeight:"14px",letterSpacing:"0.03em",fontWeight:"500"}],"body-md":["14px",{lineHeight:"20px",fontWeight:"400"}],"label-md":["12px",{lineHeight:"16px",letterSpacing:"0.02em",fontWeight:"600"}],"headline-md":["22px",{lineHeight:"30px",fontWeight:"600"}],"title-md":["16px",{lineHeight:"24px",fontWeight:"600"}],"headline-lg":["28px",{lineHeight:"36px",letterSpacing:"-0.01em",fontWeight:"600"}],"display-lg-mobile":["30px",{lineHeight:"36px",letterSpacing:"-0.015em",fontWeight:"700"}],"label-lg":["14px",{lineHeight:"20px",letterSpacing:"0.01em",fontWeight:"500"}],"body-lg":["16px",{lineHeight:"24px",fontWeight:"400"}]}}}};</script></head><body class="bg-background font-body-md text-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between overflow-y-auto"><div class="flex flex-col"><div class="p-space-lg flex flex-col gap-space-xs"><div class="flex items-center gap-space-sm"><img alt="FinMate Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1X-4OlLWNVDyqCv7cMT1HahhbFrUEscACmuvTWSvl_apOMzLK1LPI2wdCZPA5SgRNTDN13kiRyWhS11h_6MCjp94B3ey026aVIwuJE3UOui1RiSPophIo6jcuwGaFOCcS5xgemZE_OAh-FdMPBviYo2zmdxxoLJ222gCLEEnp-SCQvzijnbRqOkd44tAQLkvxVqTnfVRbUypDg_VVwT25WpC2H8mAcHf-wN7BV3-j57PCiYhe-3mJOtNHI"/><span class="font-headline-sm text-headline-sm text-primary tracking-tight">FinMate</span></div><p class="font-label-sm text-label-sm text-on-surface-variant">Your AI teammate for financial journeys</p></div><nav class="flex flex-col gap-1 px-space-md py-space-xs" data-active-classes="bg-surface-container-high text-primary font-semibold"><a aria-current="page" class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg transition-colors bg-surface-container-high text-primary font-semibold" data-path="new-journey" href="#/new-journey"><span class="material-symbols-outlined text-[20px]">add_circle</span><span class="font-body-md text-body-md">New Journey</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="journey-analysis" href="#/analysis"><span class="material-symbols-outlined text-[20px]">insights</span><span class="font-body-md text-body-md">Journey Analysis</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="goal-recovery" href="#/recovery"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[20px]">healing</span><span class="font-body-md text-body-md">Goal Recovery</span></div><span class="px-2 py-0.5 rounded-full bg-secondary-container/20 text-on-secondary-container font-label-sm text-label-sm uppercase tracking-wider">Core AI</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="decision-intelligence" href="#/intelligence"><span class="material-symbols-outlined text-[20px]">psychology</span><span class="font-body-md text-body-md">Decision Intelligence</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="human-review" href="#/review"><span class="material-symbols-outlined text-[20px]">rate_review</span><span class="font-body-md text-body-md">Human Review</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="journey-history" href="#/history"><span class="material-symbols-outlined text-[20px]">history</span><span class="font-body-md text-body-md">Journey History</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="audit-governance" href="#/audit"><span class="material-symbols-outlined text-[20px]">gavel</span><span class="font-body-md text-body-md">Audit &amp; Governance</span></a></nav></div><div class="p-space-md m-space-md rounded-xl bg-surface-container-low flex flex-col gap-space-sm"><div class="flex items-center justify-between"><div class="flex items-center gap-2"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span></span><span class="font-label-md text-label-md text-primary">AI Teammate Active</span></div><span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">Prototype</span></div><div class="rounded-lg bg-surface-container-lowest p-space-sm"><p class="font-label-sm text-label-sm text-on-surface-variant leading-relaxed">AI orchestrates. ML + Rules govern. Humans oversee.</p></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 px-space-lg flex items-center justify-between"><div class="flex items-center gap-space-md"><img alt="FinMate Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1X-4OlLWNVDyqCv7cMT1HahhbFrUEscACmuvTWSvl_apOMzLK1LPI2wdCZPA5SgRNTDN13kiRyWhS11h_6MCjp94B3ey026aVIwuJE3UOui1RiSPophIo6jcuwGaFOCcS5xgemZE_OAh-FdMPBviYo2zmdxxoLJ222gCLEEnp-SCQvzijnbRqOkd44tAQLkvxVqTnfVRbUypDg_VVwT25WpC2H8mAcHf-wN7BV3-j57PCiYhe-3mJOtNHI"/><div class="flex items-center gap-2 text-on-surface-variant font-body-sm text-body-sm"><span class="text-primary font-label-md text-label-md">FinMate Console</span><span>/</span><span>Journey Management</span></div><div class="hidden xl:flex items-center gap-1.5 ml-space-sm"><button class="px-2.5 py-1 rounded-full bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] text-on-surface font-label-sm text-label-sm hover:bg-surface-container transition-colors" type="button">Rahul · ₹5L Review</button><button class="px-2.5 py-1 rounded-full bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] text-on-surface font-label-sm text-label-sm hover:bg-surface-container transition-colors" type="button">Ananya · ₹50k Eligible</button><button class="px-2.5 py-1 rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm hover:bg-surface-container-highest transition-colors" type="button">Meera · ₹2L Goal Recovery</button><button class="px-2.5 py-1 rounded-full bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] text-on-surface font-label-sm text-label-sm hover:bg-surface-container transition-colors" type="button">Vikram · ₹75k Missing Info</button></div></div><div class="flex items-center gap-space-md"><span class="px-2.5 py-1 rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm font-medium">Simulated Data</span><button class="flex items-center text-on-surface-variant hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">help_outline</span></button><button class="relative flex items-center text-on-surface-variant hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute -top-1 -right-1 h-2 w-2 rounded-full bg-secondary"></span></button><div class="flex items-center gap-space-sm pl-space-xs"><div class="flex flex-col text-right"><span class="font-label-md text-label-md text-primary leading-tight">Meera Patel</span><span class="font-label-sm text-label-sm text-on-surface-variant leading-tight">Merchant</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 bg-surface px-space-lg py-space-md min-h-screen"><div class="flex flex-col w-full">
+<!-- Interactive State Sync Notification -->
+<div class="hidden mb-space-md p-space-sm px-space-md rounded-lg bg-surface-container-high text-primary flex items-center justify-between shadow-sm transition-all duration-300" id="statusNotification">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[18px] text-secondary">sync</span>
+<span class="font-label-md text-label-md" id="notificationText">Persona profile loaded: Meera Patel</span>
+</div>
+<button class="text-on-surface-variant hover:text-on-surface flex items-center" onclick="document.getElementById('statusNotification').classList.add('hidden')">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+<!-- Hero Header & Proactive Assistant Callout -->
+<div class="relative overflow-hidden rounded-xl bg-surface-container-lowest p-space-lg shadow-sm mb-space-lg">
+<div class="absolute -right-12 -top-12 h-64 w-64 rounded-full bg-secondary-container/10 blur-3xl pointer-events-none"></div>
+<div class="absolute right-1/3 -bottom-16 h-48 w-48 rounded-full bg-surface-container-high/40 blur-2xl pointer-events-none"></div>
+<div class="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs max-w-2xl">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-container/20 text-on-secondary-container self-start">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span>
+</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider font-semibold">Self-Healing Financial Decisioning</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-primary tracking-tight mt-1">
+          What are you trying to achieve?
+        </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+          Tell FinMate your financial goal. We'll evaluate risk, navigate policy constraints, and unlock the right path forward.
+        </p>
+</div>
+<!-- AI Teammate Conversational Pill -->
+<div class="flex flex-col bg-surface-container-low rounded-xl p-space-md shadow-sm max-w-sm">
+<div class="flex items-center gap-2 mb-1">
+<div class="w-6 h-6 rounded-full bg-secondary text-on-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px]">psychology</span>
+</div>
+<span class="font-label-md text-label-md text-primary">FinMate Assistant</span>
+<span class="ml-auto px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm">Active</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface leading-snug">
+          "👋 Hi <span class="font-semibold text-primary" id="personaGreetingName">Meera</span>, I'm FinMate. The loan may hit traditional barriers, but your customer goal never has to."
+        </p>
+</div>
+</div>
+</div>
+<!-- Main Interaction Zone: Two-Column Form & Telemetry Deck -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg mb-space-lg">
+<!-- Left 8 Cols: Goal Formulation Card -->
+<div class="lg:col-span-8 flex flex-col gap-space-lg">
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-lg relative">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">flag</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-primary">Define Your Journey</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Continuous governance verifies intent against 40+ dynamic lending policies.</p>
+</div>
+</div>
+<span class="hidden sm:inline-flex items-center gap-1 text-on-secondary-container font-label-sm text-label-sm bg-secondary-container/20 px-2.5 py-1 rounded-full">
+<span class="material-symbols-outlined text-[14px]">verified_user</span> RBI Compliant Framework
+          </span>
+</div>
+<form class="flex flex-col gap-space-md" onsubmit="event.preventDefault(); initiateJourneyAnalysis();">
+<!-- Goal Purpose Prompt -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<label class="font-label-md text-label-md text-primary" for="goalDescription">Your financial goal</label>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Natural language supported</span>
+</div>
+<div class="relative">
+<input class="w-full bg-surface-container-low text-on-surface font-body-md text-body-md rounded-lg px-4 py-3 pl-11 focus:outline-none focus:bg-surface-container-lowest shadow-sm transition-all" id="goalDescription" placeholder="E.g., Procure inventory, refinance vendor invoice, purchase high-speed weaving machine" type="text" value="I need ₹2,00,000 to purchase festive inventory for Diwali surge"/>
+<span class="material-symbols-outlined absolute left-3.5 top-3.5 text-on-surface-variant text-[18px]">edit_note</span>
+</div>
+</div>
+<!-- Quick Selector Chips -->
+<div class="flex flex-col gap-1.5">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Quick Select Common Objectives</span>
+<div class="flex flex-wrap gap-2">
+<button class="px-3 py-1.5 rounded-full bg-surface-container-low hover:bg-surface-container-high text-primary font-label-md text-label-md transition-all flex items-center gap-1.5" onclick="setGoal('Expand retail storefront to adjacent commercial unit', '500000', '30 days')" type="button">
+<span class="material-symbols-outlined text-[14px]">add</span> Expand my business
+              </button>
+<button class="px-3 py-1.5 rounded-full bg-secondary-container/20 text-on-secondary-container font-label-md text-label-md transition-all flex items-center gap-1.5" onclick="setGoal('Purchase festive inventory for Diwali surge', '200000', '14 days')" type="button">
+<span class="material-symbols-outlined text-[14px] text-secondary">check</span> Purchase inventory
+              </button>
+<button class="px-3 py-1.5 rounded-full bg-surface-container-low hover:bg-surface-container-high text-primary font-label-md text-label-md transition-all flex items-center gap-1.5" onclick="setGoal('Procure industrial grade screen-printing machinery', '50000', '7 days')" type="button">
+<span class="material-symbols-outlined text-[14px]">add</span> Buy equipment
+              </button>
+<button class="px-3 py-1.5 rounded-full bg-surface-container-low hover:bg-surface-container-high text-primary font-label-md text-label-md transition-all flex items-center gap-1.5" onclick="setGoal('Bridge 45-day distributor invoice credit cycle', '75000', '3 days')" type="button">
+<span class="material-symbols-outlined text-[14px]">add</span> Manage working capital
+              </button>
+</div>
+</div>
+<!-- Amount and Urgency Row -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-space-md pt-2">
+<!-- Amount Input with Indian Rupee formatting -->
+<div class="md:col-span-7 flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<label class="font-label-md text-label-md text-primary" for="requestedAmount">Requested amount</label>
+<span class="font-label-sm text-label-sm text-secondary font-semibold" id="amountInWords">Two Lakh Rupees</span>
+</div>
+<div class="relative">
+<div class="absolute left-4 top-3 font-headline-sm text-headline-sm text-primary">₹</div>
+<input class="w-full bg-surface-container-low text-primary font-headline-sm text-headline-sm rounded-lg pl-10 pr-4 py-2.5 focus:outline-none focus:bg-surface-container-lowest shadow-sm tracking-tight" id="requestedAmount" oninput="formatCurrencyInput(this)" type="text" value="2,00,000"/>
+</div>
+</div>
+<!-- Tenure / Urgency Selection -->
+<div class="md:col-span-5 flex flex-col gap-space-xs">
+<label class="font-label-md text-label-md text-primary" for="urgencyPeriod">Need funds within</label>
+<div class="relative">
+<select class="w-full appearance-none bg-surface-container-low text-on-surface font-body-md text-body-md rounded-lg px-4 py-3 pr-10 focus:outline-none focus:bg-surface-container-lowest shadow-sm" id="urgencyPeriod">
+<option value="3 days">Critical (within 3 days)</option>
+<option value="7 days">Urgent (within 7 days)</option>
+<option selected="" value="14 days">Standard (within 14 days)</option>
+<option value="30 days">Planned (30+ days)</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-3.5 text-on-surface-variant pointer-events-none text-[20px]">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Primary CTA and Security Attestation -->
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-space-md pt-space-sm mt-2">
+<button class="px-space-lg py-3 rounded-lg bg-primary-container text-on-primary font-title-md text-title-md hover:bg-primary transition-all flex items-center justify-center gap-2 shadow-sm group" id="analyzeBtn" type="submit">
+<span id="ctaBtnLabel">Analyze my journey</span>
+<span class="material-symbols-outlined text-[20px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+<div class="flex items-center gap-2 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-secondary text-[18px]">verified</span>
+<span>Evaluated via Governed Orchestration Engine</span>
+</div>
+</div>
+<div class="rounded-lg bg-surface-container-low p-space-sm flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[18px] mt-0.5">shield</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+<strong class="text-primary font-semibold">Zero Blind Rejections:</strong> FinMate parses multi-bureau telemetry, cash-flow run rates, and supplier networks to structure executable fallback instruments even if pure term-loan underwriting falls short.
+            </p>
+</div>
+</form>
+</div>
+</div>
+<!-- Right 4 Cols: Active Telemetry & Persona Context -->
+<div class="lg:col-span-4 flex flex-col gap-space-md">
+<!-- Current Persona Miniature Profile Card -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">Active Profile Signals</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm font-semibold" id="personaRouteTag">Goal Recovery Route</span>
+</div>
+<div class="flex items-center gap-space-sm pt-1">
+<div class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center text-primary font-headline-sm text-headline-sm">
+<span id="personaInitials">MP</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-title-md text-title-md text-primary truncate" id="personaDisplayTitle">Meera Patel</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate" id="personaSubtitle">Textile Retailer · Surat, GJ</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-2 pt-space-xs">
+<div class="p-2 rounded-lg bg-surface-container-low flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">GST Turnover (TTM)</span>
+<span class="font-title-md text-title-md text-primary" id="personaTurnover">₹38,40,000</span>
+</div>
+<div class="p-2 rounded-lg bg-surface-container-low flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Bureau Score</span>
+<span class="font-title-md text-title-md text-secondary" id="personaScore">692 (Moderate)</span>
+</div>
+</div>
+<!-- Telemetry Mini Visualizer -->
+<div class="pt-2 flex flex-col gap-1.5">
+<div class="flex justify-between items-center font-label-sm text-label-sm">
+<span class="text-on-surface-variant">Primary Underwriting Confidence</span>
+<span class="font-semibold text-primary" id="confidencePct">64%</span>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full transition-all duration-500" id="confidenceBar" style="width: 64%"></div>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant" id="confidenceDescription">
+            Standard debt-service ratio exceeded. Recovery model pre-activates split invoice factoring.
+          </span>
+</div>
+</div>
+<!-- Governance Assurance Module -->
+<div class="bg-primary text-on-primary rounded-xl p-space-md shadow-sm flex flex-col gap-space-sm relative overflow-hidden">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-secondary-fixed-dim">gavel</span>
+<span class="font-title-md text-title-md tracking-tight">FinMate Tri-Pillar Policy</span>
+</div>
+<div class="flex flex-col gap-2 pt-1 font-body-sm text-body-sm text-on-primary-container">
+<div class="flex items-start gap-2">
+<span class="font-semibold text-on-primary">1. AI Orchestrates:</span> Synthesizes user goals into structured financial objectives.
+          </div>
+<div class="flex items-start gap-2">
+<span class="font-semibold text-on-primary">2. ML + Rules Govern:</span> Hard underwriting rules and risk limits are non-negotiable.
+          </div>
+<div class="flex items-start gap-2">
+<span class="font-semibold text-on-primary">3. Humans Oversee:</span> Edge cases route immediately to certified credit underwriters.
+          </div>
+</div>
+<div class="pt-2 flex items-center justify-between text-secondary-fixed font-label-sm text-label-sm">
+<span>Audit Trail ID: #ENG-9941-GOV</span>
+<span class="material-symbols-outlined text-[16px]">verified</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Supporting Section 1: FinMate vs Traditional Journey Comparison -->
+<div class="rounded-xl bg-surface-container-lowest p-space-lg shadow-sm mb-space-lg">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-space-lg gap-space-xs">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary font-semibold">Paradigmatic Shift</span>
+<h3 class="font-headline-md text-headline-md text-primary">Why Traditional Rejection is Broken</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">
+        Banks reject loans when borrowers fail rigid box-ticking. FinMate refocuses on fulfilling the commercial goal through intelligent rerouting.
+      </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Traditional Journey Path (Cold Rejection) -->
+<div class="rounded-xl bg-surface-container-low p-space-md flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-label-md text-label-md text-on-surface-variant">Legacy Underwriting Workflow</span>
+<span class="px-2 py-0.5 rounded bg-error-container text-on-error-container font-label-sm text-label-sm font-semibold">Dead End</span>
+</div>
+<div class="flex flex-col gap-3 py-2">
+<div class="flex items-center gap-3">
+<div class="w-7 h-7 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center font-label-sm text-label-sm font-bold">1</div>
+<span class="font-body-md text-body-md text-on-surface">Customer submits ₹2,00,000 standard loan application</span>
+</div>
+<div class="h-4 border-l-2 border-dashed border-outline-variant ml-3.5"></div>
+<div class="flex items-center gap-3">
+<div class="w-7 h-7 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center font-label-sm text-label-sm font-bold">2</div>
+<span class="font-body-md text-body-md text-on-surface">Algorithmic debt-to-income check fails by 4.2%</span>
+</div>
+<div class="h-4 border-l-2 border-dashed border-outline-variant ml-3.5"></div>
+<div class="flex items-center gap-3">
+<div class="w-7 h-7 rounded-full bg-error-container text-on-error-container flex items-center justify-center font-label-sm text-label-sm font-bold">✕</div>
+<span class="font-body-md text-body-md text-error font-medium">Automatic system decline email sent (No alternatives offered)</span>
+</div>
+</div>
+</div>
+<div class="mt-space-md pt-space-sm rounded-lg bg-surface-container-lowest p-space-sm text-on-surface-variant font-label-sm text-label-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-error">cancel</span>
+<span>Result: Merchant misses festive seasonal sales window entirely.</span>
+</div>
+</div>
+<!-- FinMate Journey Path (Goal Recovery) -->
+<div class="rounded-xl bg-surface-container-high/40 p-space-md flex flex-col justify-between relative overflow-hidden">
+<div class="absolute right-0 top-0 w-32 h-32 bg-secondary-container/10 rounded-full blur-xl pointer-events-none"></div>
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-label-md text-label-md text-primary font-bold">FinMate Governed Goal Recovery</span>
+</div>
+<span class="px-2 py-0.5 rounded bg-secondary-container/20 text-on-secondary-container font-label-sm text-label-sm font-bold">Outcome Preserved</span>
+</div>
+<div class="flex flex-col gap-3 py-2">
+<div class="flex items-center gap-3">
+<div class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-sm text-label-sm font-bold">1</div>
+<span class="font-body-md text-body-md text-primary font-medium">Understand goal context: Seasonal inventory stock-up</span>
+</div>
+<div class="h-4 border-l-2 border-secondary ml-3.5"></div>
+<div class="flex items-center gap-3">
+<div class="w-7 h-7 rounded-full bg-secondary text-on-secondary flex items-center justify-center font-label-sm text-label-sm font-bold">2</div>
+<span class="font-body-md text-body-md text-primary font-medium">Evaluate risk limits: Pure unsecured credit capped at ₹1,20,000</span>
+</div>
+<div class="h-4 border-l-2 border-secondary ml-3.5"></div>
+<div class="flex items-center gap-3">
+<div class="w-7 h-7 rounded-full bg-surface-container-lowest text-secondary shadow-sm flex items-center justify-center font-label-sm text-label-sm font-bold">💡</div>
+<span class="font-body-md text-body-md text-primary font-bold">Goal Recovery: ₹1.2L Term + ₹80k Direct-to-Vendor PO financing</span>
+</div>
+</div>
+</div>
+<div class="mt-space-md pt-space-sm rounded-lg bg-surface-container-lowest p-space-sm text-primary font-label-sm text-label-sm flex items-center gap-2 shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-secondary">check_circle</span>
+<span>Result: ₹2,00,000 inventory achieved with 0% overleveraging risk.</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Supporting Section 2: Demo Persona Quick Selectors -->
+<div class="flex flex-col gap-space-md mb-space-xl">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary">Simulate Journey Archetypes</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Switch borrower states to examine real-time policy evaluation and autonomous routing branches.</p>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]">touch_app</span> Click a persona to load profile
+      </div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- Persona 1: Rahul (Human Review) -->
+<button class="group text-left p-space-md rounded-xl bg-surface-container-lowest hover:bg-surface-container-high/40 transition-all shadow-sm flex flex-col justify-between" onclick="loadPersona('Rahul Sharma', 'Kirana Store Expansion', '5,00,000', '30 days', '₹85,00,000', '745 (Prime)', '78%', 'Human Review', 'High-value ticket exceeding autonomous branch limit. Mandates human underwriter co-sign.')" type="button">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="w-8 h-8 rounded-full bg-surface-container-high text-primary flex items-center justify-center font-label-md text-label-md font-bold group-hover:scale-105 transition-transform">RS</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm font-semibold">Human Review</span>
+</div>
+<div class="mt-2">
+<h4 class="font-title-md text-title-md text-primary">Rahul Sharma</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Kirana Store Expansion</p>
+</div>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center justify-between font-label-md text-label-md">
+<span class="text-on-surface-variant">Amount:</span>
+<span class="text-primary font-bold">₹5,00,000</span>
+</div>
+</button>
+<!-- Persona 2: Ananya (Eligible Direct) -->
+<button class="group text-left p-space-md rounded-xl bg-surface-container-lowest hover:bg-surface-container-high/40 transition-all shadow-sm flex flex-col justify-between" onclick="loadPersona('Ananya Das', 'Handicrafts Precision Equipment', '50,000', '7 days', '₹14,20,000', '780 (Excellent)', '96%', 'Straight Through Eligible', 'Prime bureau rating with steady recurring UPI ledger inflows qualifies for instant disbursement.')" type="button">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="w-8 h-8 rounded-full bg-secondary-container/20 text-on-secondary-container flex items-center justify-center font-label-md text-label-md font-bold group-hover:scale-105 transition-transform">AD</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-secondary font-label-sm text-label-sm font-semibold">Eligible</span>
+</div>
+<div class="mt-2">
+<h4 class="font-title-md text-title-md text-primary">Ananya Das</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Handicrafts Equipment</p>
+</div>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center justify-between font-label-md text-label-md">
+<span class="text-on-surface-variant">Amount:</span>
+<span class="text-primary font-bold">₹50,000</span>
+</div>
+</button>
+<!-- Persona 3: Meera (Active / Goal Recovery) -->
+<button class="group text-left p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between relative ring-2 ring-primary" onclick="loadPersona('Meera Patel', 'Festive Textile Inventory Surge', '2,00,000', '14 days', '₹38,40,000', '692 (Moderate)', '64%', 'Goal Recovery', 'Standard debt-service ratio exceeded. Recovery model pre-activates split invoice factoring.')" type="button">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-md text-label-md font-bold">MP</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container/20 text-on-secondary-container font-label-sm text-label-sm font-semibold">Active · Recovery</span>
+</div>
+<div class="mt-2">
+<h4 class="font-title-md text-title-md text-primary">Meera Patel</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Textile Inventory</p>
+</div>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center justify-between font-label-md text-label-md">
+<span class="text-on-surface-variant">Amount:</span>
+<span class="text-primary font-bold">₹2,00,000</span>
+</div>
+</button>
+<!-- Persona 4: Vikram (Missing Information) -->
+<button class="group text-left p-space-md rounded-xl bg-surface-container-lowest hover:bg-surface-container-high/40 transition-all shadow-sm flex flex-col justify-between" onclick="loadPersona('Vikram Singh', 'Logistics Fleet Maintenance &amp; Spares', '75,000', '3 days', '₹22,10,000', '580 (Incomplete)', '42%', 'Missing Information', 'GST-to-Bank reconciliation gap detected. Automated AA consent fetch triggered.')" type="button">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="w-8 h-8 rounded-full bg-surface-container-high text-on-surface flex items-center justify-center font-label-md text-label-md font-bold group-hover:scale-105 transition-transform">VS</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm font-semibold">Missing Info</span>
+</div>
+<div class="mt-2">
+<h4 class="font-title-md text-title-md text-primary">Vikram Singh</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Logistics Fleet Spares</p>
+</div>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center justify-between font-label-md text-label-md">
+<span class="text-on-surface-variant">Amount:</span>
+<span class="text-primary font-bold">₹75,000</span>
+</div>
+</button>
+</div>
+</div>
+<!-- Real-time Journey Processing Modal (Simulation) -->
+<div class="fixed inset-0 z-50 flex items-center justify-center bg-inverse-surface/40 backdrop-blur-sm hidden" id="processingModal">
+<div class="bg-surface-container-lowest rounded-xl p-space-lg max-w-md w-full shadow-2xl mx-4 flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary animate-spin">autorenew</span>
+<span class="font-title-md text-title-md text-primary">Analyzing Financial Journey</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Governed ML</span>
+</div>
+<div class="flex flex-col gap-3 py-2">
+<div class="flex items-center gap-3 text-primary" id="step1">
+<span class="material-symbols-outlined text-[18px] text-secondary">check_circle</span>
+<span class="font-body-sm text-body-sm">Deconstructing goal intent into structured variables...</span>
+</div>
+<div class="flex items-center gap-3 text-on-surface-variant" id="step2">
+<span class="material-symbols-outlined text-[18px]">pending</span>
+<span class="font-body-sm text-body-sm">Running hard underwriting constraints &amp; cashflow ratios...</span>
+</div>
+<div class="flex items-center gap-3 text-on-surface-variant" id="step3">
+<span class="material-symbols-outlined text-[18px]">pending</span>
+<span class="font-body-sm text-body-sm">Formulating Goal Recovery alternatives...</span>
+</div>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full transition-all duration-700" id="modalProgress" style="width: 15%"></div>
+</div>
+<div class="flex items-center justify-between pt-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant">RBI Fair Practices Engine v4.2</span>
+<button class="font-label-sm text-label-sm text-error hover:underline" onclick="cancelProcessing()" type="button">Dismiss</button>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Dynamic Amount Conversion and Words
+  function formatCurrencyInput(elem) {
+    let cleanVal = elem.value.replace(/[^0-9]/g, '');
+    if (!cleanVal) {
+      elem.value = '0';
+      document.getElementById('amountInWords').textContent = 'Zero Rupees';
+      return;
+    }
+    let num = parseInt(cleanVal, 10);
+    elem.value = num.toLocaleString('en-IN');
+    
+    // Quick Indian denomination helper
+    const wordsEl = document.getElementById('amountInWords');
+    if (num >= 10000000) {
+      wordsEl.textContent = (num / 10000000).toFixed(2) + ' Crore Rupees';
+    } else if (num >= 100000) {
+      wordsEl.textContent = (num / 100000).toFixed(2) + ' Lakh Rupees';
+    } else if (num >= 1000) {
+      wordsEl.textContent = (num / 1000).toFixed(1) + ' Thousand Rupees';
+    } else {
+      wordsEl.textContent = num + ' Rupees';
+    }
+  }
+
+  // Quick Goal Buttons
+  function setGoal(desc, amount, urgency) {
+    document.getElementById('goalDescription').value = desc;
+    const amountElem = document.getElementById('requestedAmount');
+    amountElem.value = amount;
+    formatCurrencyInput(amountElem);
+    document.getElementById('urgencyPeriod').value = urgency;
+  }
+
+  // Persona Switching Logic
+  function loadPersona(name, goal, amount, urgency, turnover, score, confidence, route, desc) {
+    document.getElementById('personaGreetingName').textContent = name.split(' ')[0];
+    document.getElementById('personaDisplayTitle').textContent = name;
+    document.getElementById('personaSubtitle').textContent = goal;
+    document.getElementById('personaTurnover').textContent = turnover;
+    document.getElementById('personaScore').textContent = score;
+    document.getElementById('personaRouteTag').textContent = route;
+    document.getElementById('confidencePct').textContent = confidence;
+    document.getElementById('confidenceBar').style.width = confidence;
+    document.getElementById('confidenceDescription').textContent = desc;
+
+    // Set Initials
+    const initials = name.split(' ').map(n => n[0]).join('');
+    document.getElementById('personaInitials').textContent = initials;
+
+    // Fill form fields
+    document.getElementById('goalDescription').value = 'I need ₹' + amount + ' to support ' + goal.toLowerCase();
+    const amountElem = document.getElementById('requestedAmount');
+    amountElem.value = amount;
+    formatCurrencyInput(amountElem);
+    document.getElementById('urgencyPeriod').value = urgency;
+
+    // Show status pill
+    const notif = document.getElementById('statusNotification');
+    const notifText = document.getElementById('notificationText');
+    notifText.textContent = 'Active profile switched to ' + name + ' (' + route + ')';
+    notif.classList.remove('hidden');
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // Journey Analysis Trigger
+  let modalTimeout1, modalTimeout2, modalTimeout3;
+  function initiateJourneyAnalysis() {
+    const modal = document.getElementById('processingModal');
+    const prog = document.getElementById('modalProgress');
+    const step2 = document.getElementById('step2');
+    const step3 = document.getElementById('step3');
+
+    modal.classList.remove('hidden');
+    prog.style.width = '25%';
+
+    modalTimeout1 = setTimeout(() => {
+      prog.style.width = '65%';
+      step2.classList.remove('text-on-surface-variant');
+      step2.classList.add('text-primary');
+      step2.querySelector('.material-symbols-outlined').textContent = 'check_circle';
+      step2.querySelector('.material-symbols-outlined').classList.add('text-secondary');
+    }, 700);
+
+    modalTimeout2 = setTimeout(() => {
+      prog.style.width = '100%';
+      step3.classList.remove('text-on-surface-variant');
+      step3.classList.add('text-primary');
+      step3.querySelector('.material-symbols-outlined').textContent = 'check_circle';
+      step3.querySelector('.material-symbols-outlined').classList.add('text-secondary');
+    }, 1400);
+
+    modalTimeout3 = setTimeout(() => {
+      modal.classList.add('hidden');
+      // Navigate or route user to Journey Analysis
+      window.location.hash = '#/recovery';
+    }, 2000);
+  }
+
+  function cancelProcessing() {
+    clearTimeout(modalTimeout1);
+    clearTimeout(modalTimeout2);
+    clearTimeout(modalTimeout3);
+    document.getElementById('processingModal').classList.add('hidden');
+  }
+</script></main></div></body></html>

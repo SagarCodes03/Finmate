@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-surface-variant":"#444651","on-tertiary-container":"#6a97dc","inverse-on-surface":"#eaf1ff","on-primary-container":"#7893df","secondary-container":"#2bc6ff","on-background":"#0b1c30","surface-container-low":"#eff4ff","secondary":"#006686","on-error":"#ffffff","surface":"#f8f9ff","on-secondary-container":"#004f69","on-error-container":"#93000a","error-container":"#ffdad6","tertiary":"#001938","surface-tint":"#3f5ba3","surface-container-lowest":"#ffffff","on-secondary-fixed":"#001e2b","tertiary-fixed":"#d5e3ff","on-surface":"#0b1c30","on-secondary-fixed-variant":"#004d66","outline-variant":"#c4c6d2","error":"#ba1a1a","secondary-fixed-dim":"#71d2ff","tertiary-container":"#002e5d","surface-container-highest":"#d3e4fe","on-primary-fixed-variant":"#25438a","background":"#f8f9ff","on-tertiary-fixed":"#001b3c","on-tertiary-fixed-variant":"#074786","surface-bright":"#f8f9ff","surface-variant":"#d3e4fe","primary-fixed-dim":"#b3c5ff","inverse-surface":"#213145","outline":"#747682","primary-fixed":"#dae1ff","surface-container-high":"#dce9ff","on-tertiary":"#ffffff","on-primary":"#ffffff","secondary-fixed":"#c0e8ff","primary-container":"#002970","surface-container":"#e5eeff","inverse-primary":"#b3c5ff","primary":"#001645","on-primary-fixed":"#001849","on-secondary":"#ffffff","surface-dim":"#cbdbf5","tertiary-fixed-dim":"#a7c8ff"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{"space-xs":"0.25rem",gutter:"1.25rem","space-md":"1rem","space-sm":"0.5rem","space-xl":"2.25rem",margin:"1.5rem","space-lg":"1.5rem"},fontFamily:{"headline-sm":["Plus Jakarta Sans"],"display-lg":["Plus Jakarta Sans"],"body-sm":["Inter"],"label-sm":["Inter"],"body-md":["Inter"],"label-md":["Inter"],"headline-md":["Plus Jakarta Sans"],"title-md":["Inter"],"headline-lg":["Plus Jakarta Sans"],"display-lg-mobile":["Plus Jakarta Sans"],"label-lg":["Inter"],"body-lg":["Inter"]},fontSize:{"headline-sm":["18px",{lineHeight:"26px",fontWeight:"600"}],"display-lg":["40px",{lineHeight:"48px",letterSpacing:"-0.02em",fontWeight:"700"}],"body-sm":["12px",{lineHeight:"18px",fontWeight:"400"}],"label-sm":["11px",{lineHeight:"14px",letterSpacing:"0.03em",fontWeight:"500"}],"body-md":["14px",{lineHeight:"20px",fontWeight:"400"}],"label-md":["12px",{lineHeight:"16px",letterSpacing:"0.02em",fontWeight:"600"}],"headline-md":["22px",{lineHeight:"30px",fontWeight:"600"}],"title-md":["16px",{lineHeight:"24px",fontWeight:"600"}],"headline-lg":["28px",{lineHeight:"36px",letterSpacing:"-0.01em",fontWeight:"600"}],"display-lg-mobile":["30px",{lineHeight:"36px",letterSpacing:"-0.015em",fontWeight:"700"}],"label-lg":["14px",{lineHeight:"20px",letterSpacing:"0.01em",fontWeight:"500"}],"body-lg":["16px",{lineHeight:"24px",fontWeight:"400"}]}}}};</script></head><body class="bg-background font-body-md text-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between overflow-y-auto"><div class="flex flex-col"><div class="p-space-lg flex flex-col gap-space-xs"><div class="flex items-center gap-space-sm"><img alt="FinMate Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1X-4OlLWNVDyqCv7cMT1HahhbFrUEscACmuvTWSvl_apOMzLK1LPI2wdCZPA5SgRNTDN13kiRyWhS11h_6MCjp94B3ey026aVIwuJE3UOui1RiSPophIo6jcuwGaFOCcS5xgemZE_OAh-FdMPBviYo2zmdxxoLJ222gCLEEnp-SCQvzijnbRqOkd44tAQLkvxVqTnfVRbUypDg_VVwT25WpC2H8mAcHf-wN7BV3-j57PCiYhe-3mJOtNHI"/><span class="font-headline-sm text-headline-sm text-primary tracking-tight">FinMate</span></div><p class="font-label-sm text-label-sm text-on-surface-variant">Your AI teammate for financial journeys</p></div><nav class="flex flex-col gap-1 px-space-md py-space-xs" data-active-classes="bg-surface-container-high text-primary font-semibold"><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="new-journey" href="#/new-journey"><span class="material-symbols-outlined text-[20px]">add_circle</span><span class="font-body-md text-body-md">New Journey</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="journey-analysis" href="#/analysis"><span class="material-symbols-outlined text-[20px]">insights</span><span class="font-body-md text-body-md">Journey Analysis</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="goal-recovery" href="#/recovery"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[20px]">healing</span><span class="font-body-md text-body-md">Goal Recovery</span></div><span class="px-2 py-0.5 rounded-full bg-secondary-container/20 text-on-secondary-container font-label-sm text-label-sm uppercase tracking-wider">Core AI</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="decision-intelligence" href="#/intelligence"><span class="material-symbols-outlined text-[20px]">psychology</span><span class="font-body-md text-body-md">Decision Intelligence</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="human-review" href="#/review"><span class="material-symbols-outlined text-[20px]">rate_review</span><span class="font-body-md text-body-md">Human Review</span></a><a aria-current="page" class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg transition-colors bg-surface-container-high text-primary font-semibold" data-path="journey-history" href="#/history"><span class="material-symbols-outlined text-[20px]">history</span><span class="font-body-md text-body-md">Journey History</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="audit-governance" href="#/audit"><span class="material-symbols-outlined text-[20px]">gavel</span><span class="font-body-md text-body-md">Audit &amp; Governance</span></a></nav></div><div class="p-space-md m-space-md rounded-xl bg-surface-container-low flex flex-col gap-space-sm"><div class="flex items-center justify-between"><div class="flex items-center gap-2"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span></span><span class="font-label-md text-label-md text-primary">AI Teammate Active</span></div><span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">Prototype</span></div><div class="rounded-lg bg-surface-container-lowest p-space-sm"><p class="font-label-sm text-label-sm text-on-surface-variant leading-relaxed">AI orchestrates. ML + Rules govern. Humans oversee.</p></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 px-space-lg flex items-center justify-between"><div class="flex items-center gap-space-md"><img alt="FinMate Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1X-4OlLWNVDyqCv7cMT1HahhbFrUEscACmuvTWSvl_apOMzLK1LPI2wdCZPA5SgRNTDN13kiRyWhS11h_6MCjp94B3ey026aVIwuJE3UOui1RiSPophIo6jcuwGaFOCcS5xgemZE_OAh-FdMPBviYo2zmdxxoLJ222gCLEEnp-SCQvzijnbRqOkd44tAQLkvxVqTnfVRbUypDg_VVwT25WpC2H8mAcHf-wN7BV3-j57PCiYhe-3mJOtNHI"/><div class="flex items-center gap-2 text-on-surface-variant font-body-sm text-body-sm"><span class="text-primary font-label-md text-label-md">FinMate Console</span><span>/</span><span>Journey Management</span></div><div class="hidden xl:flex items-center gap-1.5 ml-space-sm"><button class="px-2.5 py-1 rounded-full bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] text-on-surface font-label-sm text-label-sm hover:bg-surface-container transition-colors" type="button">Rahul · ₹5L Review</button><button class="px-2.5 py-1 rounded-full bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] text-on-surface font-label-sm text-label-sm hover:bg-surface-container transition-colors" type="button">Ananya · ₹50k Eligible</button><button class="px-2.5 py-1 rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm hover:bg-surface-container-highest transition-colors" type="button">Meera · ₹2L Goal Recovery</button><button class="px-2.5 py-1 rounded-full bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] text-on-surface font-label-sm text-label-sm hover:bg-surface-container transition-colors" type="button">Vikram · ₹75k Missing Info</button></div></div><div class="flex items-center gap-space-md"><span class="px-2.5 py-1 rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm font-medium">Simulated Data</span><button class="flex items-center text-on-surface-variant hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">help_outline</span></button><button class="relative flex items-center text-on-surface-variant hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute -top-1 -right-1 h-2 w-2 rounded-full bg-secondary"></span></button><div class="flex items-center gap-space-sm pl-space-xs"><div class="flex flex-col text-right"><span class="font-label-md text-label-md text-primary leading-tight">Meera Patel</span><span class="font-label-sm text-label-sm text-on-surface-variant leading-tight">Merchant</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 bg-surface px-space-lg py-space-md min-h-screen"><div class="flex flex-col w-full gap-space-lg pb-space-xl">
+<!-- Top Bar / Operational Header with Metrics Overview -->
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-md">
+<div class="flex flex-col gap-1 max-w-2xl">
+<div class="flex items-center gap-2">
+<span class="px-2.5 py-0.5 rounded-full bg-secondary-container/20 text-secondary font-label-sm text-label-sm uppercase tracking-wider flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">verified_user</span>
+          Governed Ledger · RBI Compliant Framework
+        </span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">• Batch v2.4.9</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-primary tracking-tight">Journey History</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">
+        Track past financial journeys, governed decisions, and active goal recovery pathways across verified borrower records.
+      </p>
+</div>
+<!-- Quick Stats Bar in Pill Container -->
+<div class="flex flex-wrap items-center gap-space-sm bg-surface-container-lowest p-2 rounded-xl shadow-sm">
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container-low">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Total Pipeline:</span>
+<span class="font-label-md text-label-md text-primary">₹8,25,000</span>
+</div>
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container-low">
+<span class="material-symbols-outlined text-secondary text-[16px]">bolt</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Zero Cold Drops</span>
+</div>
+<button class="px-3 py-1.5 bg-primary hover:bg-tertiary-container text-on-primary rounded-lg font-label-sm text-label-sm flex items-center gap-1.5 shadow-sm transition-all" type="button">
+<span class="material-symbols-outlined text-[16px]">download</span>
+        Export Report
+      </button>
+</div>
+</div>
+<!-- Hero Analytics & Persona Visual Cards (Bento Ribbon) -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-space-md">
+<!-- Featured Profile Card: Meera Patel Spotlight -->
+<div class="md:col-span-8 bg-surface-container-lowest rounded-xl p-space-lg shadow-sm relative overflow-hidden flex flex-col justify-between">
+<div class="absolute -right-8 -bottom-8 w-64 h-64 bg-secondary-container/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-md z-10">
+<div class="flex items-center gap-space-md">
+<div class="relative">
+<img class="w-16 h-16 rounded-xl object-cover shadow-sm" data-alt="Warm studio portrait of an ambitious Indian female retail merchant entrepreneur in a vibrant boutique shop with textile rolls softly blurred in the background, wearing contemporary smart casual attire with authentic lighting in navy and cyan hues." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2ZMmqryRoQG7JFQLzpn9Jb1Fz8hRQP3ez63xkvW_sNyfGw1zGYS5-eeXMWK8c28V4FdnIYvmg2wx1c31MdppcI5dUawFnN9A51FTv1E7Q_MBOb9BOKGOvvcTiPu5a_v8XYXg9YhMzrAEZkJ0UuubkhSx_3h1YfzD80ZN0YzwJhoEgpUsZOct8wafs5uMGacGXaQA-D63I4KOhAKTudRnN2CIvr6tCu8RptHWkPgliji8HvHIjbeLF"/>
+<span class="absolute -bottom-1 -right-1 w-4 h-4 bg-secondary rounded-full border-2 border-surface-container-lowest flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary text-[10px]">auto_awesome</span>
+</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<h2 class="font-headline-sm text-headline-sm text-primary">Meera Patel</h2>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container/20 text-on-secondary-container font-label-sm text-label-sm flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+                Active Live Simulation
+              </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Retail Clothier · Sector 18, Ahmedabad · GSTIN: 24AAACP1204P1ZM</p>
+</div>
+</div>
+<div class="flex flex-col sm:items-end">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Target Facility</span>
+<span class="font-headline-lg text-headline-lg text-primary tracking-tight">₹2,00,000</span>
+<span class="font-label-sm text-label-sm text-secondary font-medium">94.2% AI Confidence Score</span>
+</div>
+</div>
+<div class="mt-space-lg pt-space-md bg-surface-container-low/60 rounded-lg p-space-md z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-md">
+<div class="flex items-start gap-3">
+<div class="w-9 h-9 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[20px]">healing</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md text-primary">Adaptive Goal Recovery in Progress</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-high text-primary font-label-sm text-label-sm">Sprint #2</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Initial ₹2L request transformed to right-sized ₹1,00,000 tranche with structured milestone drawdown, bypassing hard rejection.
+            </p>
+</div>
+</div>
+<a class="shrink-0 px-space-md py-space-sm rounded-lg bg-primary hover:bg-tertiary-container text-on-primary font-label-md text-label-md flex items-center gap-1.5 transition-colors shadow-sm" href="#/recovery">
+<span>Explore Pathway</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Governance Telemetry Ring Widget -->
+<div class="md:col-span-4 bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Policy Engine</span>
+<span class="font-headline-sm text-headline-sm text-primary">Audit Integrity</span>
+</div>
+<div class="p-2 rounded-lg bg-surface-container-low text-secondary">
+<span class="material-symbols-outlined text-[20px]">shield_with_heart</span>
+</div>
+</div>
+<!-- Compact SVG Gauge -->
+<div class="flex items-center justify-center py-2 relative">
+<svg class="w-32 h-32 transform -rotate-90" viewbox="0 0 120 120">
+<circle class="text-surface-container" cx="60" cy="60" fill="transparent" r="50" stroke="currentColor" stroke-width="12"></circle>
+<circle class="text-secondary" cx="60" cy="60" fill="transparent" r="50" stroke="currentColor" stroke-dasharray="314.159" stroke-dashoffset="0" stroke-linecap="round" stroke-width="12"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center text-center pointer-events-none">
+<span class="font-headline-lg text-headline-lg text-primary tracking-tight">100%</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Deterministic</span>
+</div>
+</div>
+<div class="space-y-1.5 pt-2">
+<div class="flex justify-between items-center text-body-sm font-body-sm">
+<span class="text-on-surface-variant flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+            Regulatory Rulebook
+          </span>
+<span class="font-label-md text-label-md text-primary">v24.1 Active</span>
+</div>
+<div class="flex justify-between items-center text-body-sm font-body-sm">
+<span class="text-on-surface-variant flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-container"></span>
+            Human Arbiter SLA
+          </span>
+<span class="font-label-md text-label-md text-primary">&lt; 4 Hours</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Filter Ribbon & Search Bar -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-sm bg-surface-container-lowest p-space-sm rounded-xl shadow-sm">
+<!-- Filter Tabs (Segmented Control) -->
+<div class="flex flex-wrap items-center gap-1 p-1 bg-surface-container-low rounded-lg" id="filter-tabs">
+<button class="filter-btn active px-3 py-1.5 rounded-md font-label-md text-label-md bg-surface-container-lowest text-primary shadow-sm transition-all flex items-center gap-1.5" data-filter="all" type="button">
+<span>All Journeys</span>
+<span class="px-1.5 py-0.2 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">4</span>
+</button>
+<button class="filter-btn px-3 py-1.5 rounded-md font-label-md text-label-md text-on-surface-variant hover:text-primary transition-all flex items-center gap-1.5" data-filter="goal-recovery" type="button">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span>Goal Recovery</span>
+<span class="px-1.5 py-0.2 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">1</span>
+</button>
+<button class="filter-btn px-3 py-1.5 rounded-md font-label-md text-label-md text-on-surface-variant hover:text-primary transition-all flex items-center gap-1.5" data-filter="eligible" type="button">
+<span class="w-2 h-2 rounded-full bg-secondary-fixed-dim"></span>
+<span>Eligible</span>
+<span class="px-1.5 py-0.2 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">1</span>
+</button>
+<button class="filter-btn px-3 py-1.5 rounded-md font-label-md text-label-md text-on-surface-variant hover:text-primary transition-all flex items-center gap-1.5" data-filter="review" type="button">
+<span class="w-2 h-2 rounded-full bg-on-tertiary-container"></span>
+<span>Under Review</span>
+<span class="px-1.5 py-0.2 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">1</span>
+</button>
+<button class="filter-btn px-3 py-1.5 rounded-md font-label-md text-label-md text-on-surface-variant hover:text-primary transition-all flex items-center gap-1.5" data-filter="action-needed" type="button">
+<span class="w-2 h-2 rounded-full bg-outline"></span>
+<span>Action Needed</span>
+<span class="px-1.5 py-0.2 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">1</span>
+</button>
+</div>
+<!-- Live Search & Sort Controls -->
+<div class="flex items-center gap-space-xs px-space-xs">
+<div class="relative w-full sm:w-64">
+<span class="material-symbols-outlined absolute left-2.5 top-1/2 -translate-y-1/2 text-outline text-[18px]">search</span>
+<input class="w-full pl-9 pr-3 py-1.5 bg-surface-container-low rounded-lg font-body-sm text-body-sm text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:bg-surface-container-lowest transition-colors" id="journey-search" placeholder="Search by name, ID, or purpose..." type="text"/>
+</div>
+<button class="p-1.5 text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg transition-colors" title="Sort by timestamp" type="button">
+<span class="material-symbols-outlined text-[20px]">sort</span>
+</button>
+</div>
+</div>
+<!-- Primary Journey Cards Grid / Interactive Ledger -->
+<div class="grid grid-cols-1 gap-space-md" id="journey-records-container">
+<!-- RECORD 1: MEERA PATEL -->
+<div class="journey-item group bg-surface-container-lowest hover:bg-surface-container-lowest rounded-xl p-space-lg shadow-sm hover:shadow-md transition-all duration-200" data-status="goal-recovery">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+<!-- Identity & Goal Header -->
+<div class="flex items-start gap-space-md lg:w-4/12">
+<div class="relative shrink-0">
+<img class="w-12 h-12 rounded-xl object-cover shadow-sm" data-alt="Square professional headshot avatar of Meera Patel, an Indian woman in her early thirties, smiling confidently with a professional clean fintech ambient lighting style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDajk0bH8skRVkp7FyzDPpeRHd6E5mSpfZeS41XyRIz0lJTnTK6sN4O3M1lOa7meywHnfcef3rp7utACTt7hHbC_yVa-y-i3Zt1a6qzRmWEgoFeTRaWdunRoJ8F_-GJaFbJjsJedEsJjY6FPzNtAzY_qsPmQ539FQyOckJ5OcKBhhEElirtcCti9BeYa2DoGtmJiGfMmsSEsrqtaYN3QwDWWsKXbZ0k7JL941AdfFf_y50tX5cIBjD0"/>
+<span class="absolute -top-1 -right-1 flex h-3 w-3">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-secondary"></span>
+</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2 flex-wrap">
+<span class="font-headline-sm text-headline-sm text-primary group-hover:text-secondary transition-colors">Meera Patel</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">Active Demo</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+              Goal: <span class="text-on-surface font-medium">Purchase inventory</span>
+</p>
+<div class="flex items-center gap-2 mt-2 font-label-sm text-label-sm text-on-surface-variant">
+<span>Today, 14:32 IST</span>
+<span>•</span>
+<span class="font-mono text-[11px] bg-surface-container-low px-1.5 py-0.5 rounded">meera-demo-001</span>
+</div>
+</div>
+</div>
+<!-- Metric & Status Badging -->
+<div class="flex flex-wrap sm:flex-nowrap items-center justify-between lg:justify-center gap-space-lg lg:w-4/12">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Loan Request</span>
+<span class="font-headline-md text-headline-md text-primary font-bold">₹2,00,000</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Unsecured MSME Working Cap</span>
+</div>
+<div class="flex flex-col items-start">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-1">State &amp; Governed Action</span>
+<!-- Blue Badge with Sparkle -->
+<span class="px-3 py-1 rounded-full bg-surface-container-high text-primary font-label-md text-label-md flex items-center gap-1.5 shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-secondary">auto_awesome</span>
+              Goal Recovery
+            </span>
+<span class="font-body-sm text-body-sm text-primary font-medium mt-1">Exploring Right-sized path (₹1,00,000)</span>
+</div>
+</div>
+<!-- Next Action & Deep-dive trigger -->
+<div class="flex items-center justify-end gap-space-sm lg:w-3/12 border-t lg:border-t-0 pt-space-sm lg:pt-0">
+<a class="w-full lg:w-auto px-space-md py-space-sm rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-primary font-label-md text-label-md flex items-center justify-center gap-2 transition-all group-hover:bg-primary group-hover:text-on-primary" href="#/recovery">
+<span>View recovery paths</span>
+<span class="material-symbols-outlined text-[18px] group-hover:translate-x-0.5 transition-transform">arrow_forward</span>
+</a>
+<button class="p-2 text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg transition-colors" title="Audit Dossier" type="button">
+<span class="material-symbols-outlined text-[20px]">description</span>
+</button>
+</div>
+</div>
+<!-- Inline Telemetry Ribbon (Goal Recovery Specific Breakdown) -->
+<div class="mt-space-md pt-space-sm bg-surface-container-low/40 rounded-lg p-space-sm flex flex-wrap items-center justify-between gap-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[16px]">psychology</span>
+<span class="font-body-sm text-body-sm text-on-surface">
+            AI Engine detected cashflow peak mismatch on 18th month. Automatically routed from hard denial to phased tranche offer.
+          </span>
+</div>
+<div class="flex items-center gap-3">
+<span class="font-label-sm text-label-sm text-secondary font-semibold">2 Alternative Offers Generated</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">• Ready for Meera's Confirmation</span>
+</div>
+</div>
+</div>
+<!-- RECORD 2: RAHUL SHARMA -->
+<div class="journey-item group bg-surface-container-lowest hover:bg-surface-container-lowest rounded-xl p-space-lg shadow-sm hover:shadow-md transition-all duration-200" data-status="review">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+<!-- Identity & Goal Header -->
+<div class="flex items-start gap-space-md lg:w-4/12">
+<div class="relative shrink-0">
+<img class="w-12 h-12 rounded-xl object-cover shadow-sm" data-alt="Portrait of Rahul Sharma, an Indian male grocery store owner in his forties wearing a collared kurta, standing inside an organized modern Indian grocery kirana store." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPgWeTOueW7VI4rB8jn6LNCr_8Ja4nsVcr_gwXlFFxDNXJ5kPoL6R448Z20Ed5voQzIytcDD7aSWRwPqNjrdTavnuR9gYqUZlKkjhecxKR0fY-0TcOpB34iussohDG6x_Ni-Sr4b1SZZu-dAQMxdV5ygSXxEooOM_hG9DNxDF4E_CVbv3t35Oz2XJDZlmGSpKlDCxjkn0X9lxYFl56_TeWARvazvui-DFvkqArnBaRKxKVyLmdb0zd"/>
+<span class="absolute -bottom-1 -right-1 w-3 h-3 bg-surface-container-high rounded-full"></span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2 flex-wrap">
+<span class="font-headline-sm text-headline-sm text-primary group-hover:text-secondary transition-colors">Rahul Sharma</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">Retail Kirana</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+              Goal: <span class="text-on-surface font-medium">Expand grocery store</span>
+</p>
+<div class="flex items-center gap-2 mt-2 font-label-sm text-label-sm text-on-surface-variant">
+<span>Yesterday, 11:15 IST</span>
+<span>•</span>
+<span class="font-mono text-[11px] bg-surface-container-low px-1.5 py-0.5 rounded">rahul-demo-002</span>
+</div>
+</div>
+</div>
+<!-- Metric & Status Badging -->
+<div class="flex flex-wrap sm:flex-nowrap items-center justify-between lg:justify-center gap-space-lg lg:w-4/12">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Loan Request</span>
+<span class="font-headline-md text-headline-md text-primary font-bold">₹5,00,000</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Commercial Renovation Loan</span>
+</div>
+<div class="flex flex-col items-start">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-1">State &amp; Governed Action</span>
+<!-- Amber Badge: Human Review -->
+<span class="px-3 py-1 rounded-full bg-surface-container-high text-primary font-label-md text-label-md flex items-center gap-1.5 shadow-sm">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+              Human Review
+            </span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-1">Awaiting underwriter review packet</span>
+</div>
+</div>
+<!-- Next Action -->
+<div class="flex items-center justify-end gap-space-sm lg:w-3/12 border-t lg:border-t-0 pt-space-sm lg:pt-0">
+<a class="w-full lg:w-auto px-space-md py-space-sm rounded-lg bg-surface-container hover:bg-surface-container-high text-primary font-label-md text-label-md flex items-center justify-center gap-2 transition-all group-hover:bg-primary group-hover:text-on-primary" href="#/review">
+<span>View case status</span>
+<span class="material-symbols-outlined text-[18px] group-hover:translate-x-0.5 transition-transform">arrow_forward</span>
+</a>
+<button class="p-2 text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg transition-colors" title="Audit Dossier" type="button">
+<span class="material-symbols-outlined text-[20px]">description</span>
+</button>
+</div>
+</div>
+<!-- Human Arbiter Notes -->
+<div class="mt-space-md pt-space-sm bg-surface-container-low/40 rounded-lg p-space-sm flex flex-wrap items-center justify-between gap-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[16px]">rate_review</span>
+<span class="font-body-sm text-body-sm text-on-surface">
+            Assigned to Credit Officer Priya N. · Physical site survey cross-check uploaded to document vault.
+          </span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+<span>SLA: 2h 45m remaining</span>
+</div>
+</div>
+</div>
+<!-- RECORD 3: ANANYA SEN -->
+<div class="journey-item group bg-surface-container-lowest hover:bg-surface-container-lowest rounded-xl p-space-lg shadow-sm hover:shadow-md transition-all duration-200" data-status="eligible">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+<!-- Identity & Goal Header -->
+<div class="flex items-start gap-space-md lg:w-4/12">
+<div class="relative shrink-0">
+<img class="w-12 h-12 rounded-xl object-cover shadow-sm" data-alt="Portrait of Ananya Sen, an Indian female technology consultant and creative agency owner in Kolkata, dressed in smart business clothing inside a modern co-working studio with clean warm light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuANYmT_fBpaOOdvSwBycQsMGXwfwG8SETKSNDuN1YZhihMWfl_KVlyBlyj0uNooitFPxggCYge84hOHIqzKhtZIP4EqGENPcUfTDoB8Q0FT0TwcZDnGIFWPkT3gCRekhcXlqD8qlkxu4mcBH47nHXggDv9FVMaLjUqlwf_pODd1UEELSeuMZ7Rn72RX8N9Tm9nqnw7jdVWRoP7Gz-DxE3dutMj-osgQTgXth3RDMgEkJjAbmhsUmlcl"/>
+<span class="absolute -bottom-1 -right-1 w-3 h-3 bg-surface-container rounded-full"></span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2 flex-wrap">
+<span class="font-headline-sm text-headline-sm text-primary group-hover:text-secondary transition-colors">Ananya Sen</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">Micro Enterprise</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+              Goal: <span class="text-on-surface font-medium">Upgrade business equipment</span>
+</p>
+<div class="flex items-center gap-2 mt-2 font-label-sm text-label-sm text-on-surface-variant">
+<span>12 Oct 2024 · 16:40 IST</span>
+<span>•</span>
+<span class="font-mono text-[11px] bg-surface-container-low px-1.5 py-0.5 rounded">ananya-demo-003</span>
+</div>
+</div>
+</div>
+<!-- Metric & Status Badging -->
+<div class="flex flex-wrap sm:flex-nowrap items-center justify-between lg:justify-center gap-space-lg lg:w-4/12">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Loan Request</span>
+<span class="font-headline-md text-headline-md text-primary font-bold">₹50,000</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Micro Digital Capital</span>
+</div>
+<div class="flex flex-col items-start">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-1">State &amp; Governed Action</span>
+<!-- Green Badge: Eligible -->
+<span class="px-3 py-1 rounded-full bg-surface-container-high text-primary font-label-md text-label-md flex items-center gap-1.5 shadow-sm">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+              Eligible
+            </span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-1">Proceeding to governed disbursement checklist</span>
+</div>
+</div>
+<!-- Next Action -->
+<div class="flex items-center justify-end gap-space-sm lg:w-3/12 border-t lg:border-t-0 pt-space-sm lg:pt-0">
+<a class="w-full lg:w-auto px-space-md py-space-sm rounded-lg bg-surface-container hover:bg-surface-container-high text-primary font-label-md text-label-md flex items-center justify-center gap-2 transition-all group-hover:bg-primary group-hover:text-on-primary" href="#/intelligence">
+<span>View journey</span>
+<span class="material-symbols-outlined text-[18px] group-hover:translate-x-0.5 transition-transform">arrow_forward</span>
+</a>
+<button class="p-2 text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg transition-colors" title="Audit Dossier" type="button">
+<span class="material-symbols-outlined text-[20px]">description</span>
+</button>
+</div>
+</div>
+<!-- Quick Status Strip -->
+<div class="mt-space-md pt-space-sm bg-surface-container-low/40 rounded-lg p-space-sm flex flex-wrap items-center justify-between gap-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[16px]">check_circle</span>
+<span class="font-body-sm text-body-sm text-on-surface">
+            UPI AutoPay &amp; e-Mandate registered with HDFC Bank. Ready for automated instant release.
+          </span>
+</div>
+<div class="flex items-center gap-2 font-label-sm text-label-sm text-primary">
+<span class="material-symbols-outlined text-[16px] text-secondary">speed</span>
+<span>Instant Settlement Ready</span>
+</div>
+</div>
+</div>
+<!-- RECORD 4: VIKRAM SINGH -->
+<div class="journey-item group bg-surface-container-lowest hover:bg-surface-container-lowest rounded-xl p-space-lg shadow-sm hover:shadow-md transition-all duration-200" data-status="action-needed">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+<!-- Identity & Goal Header -->
+<div class="flex items-start gap-space-md lg:w-4/12">
+<div class="relative shrink-0">
+<img class="w-12 h-12 rounded-xl object-cover shadow-sm" data-alt="Portrait of Vikram Singh, a dynamic Indian logistics and transport operator wearing a neat utility jacket, standing in front of a commercial fleet yard under bright daylight." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnZxJemeAx120UHWsyPZ1c6FyP7o1jLIPZHzpHDipFXmeofHqPvrAC0saBbF71r3b2WEqUkTedxflTrmJNzgZ95QFJI2psiZZHaO3TVlJ2fKuQUnR-OJFL7misHt1HmXde4Z7UuRLHJYj5oOJHG4JSJhqF4ovweAlkqa9sZREane1l97WAUHGaD6B-NUZNHbyQCv315eXkUhgblubxpa6TbwEVA09Yqrj_ZqZYCheqRSbXWShw8O-W"/>
+<span class="absolute -bottom-1 -right-1 w-3 h-3 bg-surface-container-highest rounded-full"></span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2 flex-wrap">
+<span class="font-headline-sm text-headline-sm text-primary group-hover:text-secondary transition-colors">Vikram Singh</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">Fleet Logistics</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+              Goal: <span class="text-on-surface font-medium">Expand delivery capacity</span>
+</p>
+<div class="flex items-center gap-2 mt-2 font-label-sm text-label-sm text-on-surface-variant">
+<span>10 Oct 2024 · 09:20 IST</span>
+<span>•</span>
+<span class="font-mono text-[11px] bg-surface-container-low px-1.5 py-0.5 rounded">vikram-demo-004</span>
+</div>
+</div>
+</div>
+<!-- Metric & Status Badging -->
+<div class="flex flex-wrap sm:flex-nowrap items-center justify-between lg:justify-center gap-space-lg lg:w-4/12">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Loan Request</span>
+<span class="font-headline-md text-headline-md text-primary font-bold">₹75,000</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Commercial EV Purchase</span>
+</div>
+<div class="flex flex-col items-start">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-1">State &amp; Governed Action</span>
+<!-- Slate Badge: Missing Information -->
+<span class="px-3 py-1 rounded-full bg-surface-container-high text-primary font-label-md text-label-md flex items-center gap-1.5 shadow-sm">
+<span class="w-2 h-2 rounded-full bg-outline"></span>
+              Missing Information
+            </span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-1">Identity &amp; vehicle permit upload required</span>
+</div>
+</div>
+<!-- Next Action -->
+<div class="flex items-center justify-end gap-space-sm lg:w-3/12 border-t lg:border-t-0 pt-space-sm lg:pt-0">
+<a class="w-full lg:w-auto px-space-md py-space-sm rounded-lg bg-surface-container hover:bg-surface-container-high text-primary font-label-md text-label-md flex items-center justify-center gap-2 transition-all group-hover:bg-primary group-hover:text-on-primary" href="#/history">
+<span>Complete checklist</span>
+<span class="material-symbols-outlined text-[18px] group-hover:translate-x-0.5 transition-transform">arrow_forward</span>
+</a>
+<button class="p-2 text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg transition-colors" title="Audit Dossier" type="button">
+<span class="material-symbols-outlined text-[20px]">description</span>
+</button>
+</div>
+</div>
+<!-- Action items pending -->
+<div class="mt-space-md pt-space-sm bg-surface-container-low/40 rounded-lg p-space-sm flex flex-wrap items-center justify-between gap-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-[16px]">pending_actions</span>
+<span class="font-body-sm text-body-sm text-on-surface">
+            DigiLocker consent granted. Pending: Commercial Regional Transport Office (RTO) endorsement certificate.
+          </span>
+</div>
+<div class="flex items-center gap-2">
+<button class="text-secondary hover:text-primary font-label-sm text-label-sm flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[14px]">send</span>
+            Resend SMS Link to Vikram
+          </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Governance & Summary Stats Section -->
+<div class="mt-space-md grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<!-- Stat 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Simulated Repository</span>
+<div class="p-2 rounded-lg bg-surface-container-low text-primary">
+<span class="material-symbols-outlined text-[20px]">dataset</span>
+</div>
+</div>
+<div class="mt-space-sm">
+<span class="font-display-lg text-display-lg text-primary">4</span>
+<span class="font-body-md text-body-md text-on-surface-variant ml-1">Total Active Journeys</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">
+        Encompasses 4 distinct credit profiles across manufacturing, retail, logistics, and creative MSMEs.
+      </p>
+</div>
+<!-- Stat 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Audited Decisions</span>
+<div class="p-2 rounded-lg bg-surface-container-low text-secondary">
+<span class="material-symbols-outlined text-[20px]">fact_check</span>
+</div>
+</div>
+<div class="mt-space-sm">
+<span class="font-display-lg text-display-lg text-primary">100%</span>
+<span class="font-body-md text-body-md text-secondary font-medium ml-1">Deterministic Trace</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">
+        Every AI suggestion is accompanied by cryptographically logged ML feature attribution &amp; rule triggers.
+      </p>
+</div>
+<!-- Stat 3 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">AI Recovery Efficacy</span>
+<div class="p-2 rounded-lg bg-surface-container-low text-secondary">
+<span class="material-symbols-outlined text-[20px]">support</span>
+</div>
+</div>
+<div class="mt-space-sm">
+<span class="font-display-lg text-display-lg text-primary">0</span>
+<span class="font-body-md text-body-md text-on-surface-variant ml-1">Cold Rejections</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">
+        Sub-prime or non-fitting traditional requests activate automated Goal Recovery pathfinding instantly.
+      </p>
+</div>
+</div>
+<!-- Footnote / Regulatory Assurance -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm pt-space-sm px-space-xs text-on-surface-variant font-label-sm text-label-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[16px]">assured_workload</span>
+<span>Simulated Sandbox Mode · FinMate Autonomous Lending Core · ISO 27001 Certified Environment</span>
+</div>
+<div class="flex items-center gap-4">
+<a class="hover:text-primary transition-colors" href="#/audit">Governance Log #A98-09</a>
+<a class="hover:text-primary transition-colors" href="#/intelligence">Explainability API Spec</a>
+</div>
+</div>
+</div>
+<script>
+  // Simple interactive filtering for demo tab clicks
+  document.addEventListener('DOMContentLoaded', () => {
+    const filterButtons = document.querySelectorAll('#filter-tabs button');
+    const cards = document.querySelectorAll('#journey-records-container .journey-item');
+    const searchInput = document.getElementById('journey-search');
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Switch tab styles
+        filterButtons.forEach(b => {
+          b.classList.remove('bg-surface-container-lowest', 'text-primary', 'shadow-sm');
+          b.classList.add('text-on-surface-variant');
+        });
+        btn.classList.add('bg-surface-container-lowest', 'text-primary', 'shadow-sm');
+        btn.classList.remove('text-on-surface-variant');
+
+        const filter = btn.getAttribute('data-filter');
+
+        cards.forEach(card => {
+          const status = card.getAttribute('data-status');
+          if (filter === 'all' || filter === status) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Real-time live filtering on card titles and metadata
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase().trim();
+        cards.forEach(card => {
+          const text = card.textContent.toLowerCase();
+          if (text.includes(query)) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    }
+  });
+</script></main></div></body></html>
