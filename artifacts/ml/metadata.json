@@ -1,0 +1,63 @@
+{
+  "model_version": "finmate-default-risk-xgb-v2",
+  "preprocessing_version": "finmate-preprocessing-v1",
+  "target": "Default",
+  "numeric_features": [
+    "revenue",
+    "dti_n",
+    "loan_amnt",
+    "fico_n"
+  ],
+  "categorical_features": [
+    "emp_length",
+    "purpose",
+    "home_ownership_n"
+  ],
+  "transformed_feature_names": [
+    "revenue__revenue",
+    "numeric__dti_n",
+    "numeric__loan_amnt",
+    "numeric__fico_n",
+    "categorical__emp_length_1 year",
+    "categorical__emp_length_10+ years",
+    "categorical__emp_length_2 years",
+    "categorical__emp_length_3 years",
+    "categorical__emp_length_4 years",
+    "categorical__emp_length_5 years",
+    "categorical__emp_length_6 years",
+    "categorical__emp_length_7 years",
+    "categorical__emp_length_8 years",
+    "categorical__emp_length_9 years",
+    "categorical__emp_length_< 1 year",
+    "categorical__emp_length_NI",
+    "categorical__purpose_car",
+    "categorical__purpose_credit_card",
+    "categorical__purpose_debt_consolidation",
+    "categorical__purpose_educational",
+    "categorical__purpose_home_improvement",
+    "categorical__purpose_house",
+    "categorical__purpose_major_purchase",
+    "categorical__purpose_medical",
+    "categorical__purpose_moving",
+    "categorical__purpose_other",
+    "categorical__purpose_renewable_energy",
+    "categorical__purpose_small_business",
+    "categorical__purpose_vacation",
+    "categorical__purpose_wedding",
+    "categorical__home_ownership_n_MORTGAGE",
+    "categorical__home_ownership_n_OTHER",
+    "categorical__home_ownership_n_OWN",
+    "categorical__home_ownership_n_RENT"
+  ],
+  "selected_threshold": 0.2,
+  "threshold_selection_objective": "maximize_validation_f1",
+  "dti_sentinel": {
+    "value": 999,
+    "treatment": "convert_to_missing_then_training_median_imputation"
+  },
+  "revenue_treatment": {
+    "upper_quantile": 0.995,
+    "training_fitted_cap": 325000.0,
+    "transform": "log1p_after_imputation"
+  }
+}

@@ -12,6 +12,17 @@ venv/
 *.sqlite3
 
 # Generated ML artifacts
-artifacts/
+# Keep deployment artifacts in source control, while excluding all other
+# generated files under artifacts/.
+artifacts/*
+!artifacts/ml/
+artifacts/ml/*
+!artifacts/ml/model.joblib
+!artifacts/ml/preprocessing.joblib
+!artifacts/ml/metadata.json
+!artifacts/ml/metrics.json
+!artifacts/ml/shap_importance.json
+!artifacts/ml/feature_metadata.json
+!artifacts/ml/shap_global_importance.json
 
 data/LC_loans_granting_model_dataset.csv

@@ -1,0 +1,138 @@
+[
+  {
+    "feature": "numeric__fico_n",
+    "mean_abs_shap": 0.3098313808441162
+  },
+  {
+    "feature": "numeric__loan_amnt",
+    "mean_abs_shap": 0.2946378290653229
+  },
+  {
+    "feature": "numeric__dti_n",
+    "mean_abs_shap": 0.19802223145961761
+  },
+  {
+    "feature": "revenue__revenue",
+    "mean_abs_shap": 0.17295634746551514
+  },
+  {
+    "feature": "categorical__purpose_credit_card",
+    "mean_abs_shap": 0.10105840116739273
+  },
+  {
+    "feature": "categorical__home_ownership_n_MORTGAGE",
+    "mean_abs_shap": 0.08412431180477142
+  },
+  {
+    "feature": "categorical__home_ownership_n_RENT",
+    "mean_abs_shap": 0.07860412448644638
+  },
+  {
+    "feature": "categorical__emp_length_NI",
+    "mean_abs_shap": 0.04080028459429741
+  },
+  {
+    "feature": "categorical__purpose_debt_consolidation",
+    "mean_abs_shap": 0.039787840098142624
+  },
+  {
+    "feature": "categorical__emp_length_10+ years",
+    "mean_abs_shap": 0.014978584833443165
+  },
+  {
+    "feature": "categorical__purpose_small_business",
+    "mean_abs_shap": 0.01264786347746849
+  },
+  {
+    "feature": "categorical__purpose_other",
+    "mean_abs_shap": 0.012512389570474625
+  },
+  {
+    "feature": "categorical__purpose_medical",
+    "mean_abs_shap": 0.0056782192550599575
+  },
+  {
+    "feature": "categorical__emp_length_< 1 year",
+    "mean_abs_shap": 0.0055064489133656025
+  },
+  {
+    "feature": "categorical__purpose_moving",
+    "mean_abs_shap": 0.0038346631918102503
+  },
+  {
+    "feature": "categorical__purpose_vacation",
+    "mean_abs_shap": 0.0036444065626710653
+  },
+  {
+    "feature": "categorical__purpose_car",
+    "mean_abs_shap": 0.0029194371309131384
+  },
+  {
+    "feature": "categorical__emp_length_1 year",
+    "mean_abs_shap": 0.002683447441086173
+  },
+  {
+    "feature": "categorical__home_ownership_n_OWN",
+    "mean_abs_shap": 0.002461013849824667
+  },
+  {
+    "feature": "categorical__purpose_major_purchase",
+    "mean_abs_shap": 0.002305049914866686
+  },
+  {
+    "feature": "categorical__emp_length_2 years",
+    "mean_abs_shap": 0.0020511059556156397
+  },
+  {
+    "feature": "categorical__purpose_home_improvement",
+    "mean_abs_shap": 0.0016464490909129381
+  },
+  {
+    "feature": "categorical__emp_length_7 years",
+    "mean_abs_shap": 0.0015425130259245634
+  },
+  {
+    "feature": "categorical__emp_length_5 years",
+    "mean_abs_shap": 0.0010155771160498261
+  },
+  {
+    "feature": "categorical__emp_length_6 years",
+    "mean_abs_shap": 0.000987167819403112
+  },
+  {
+    "feature": "categorical__emp_length_3 years",
+    "mean_abs_shap": 0.0006938045262359083
+  },
+  {
+    "feature": "categorical__emp_length_9 years",
+    "mean_abs_shap": 0.0006934687262400985
+  },
+  {
+    "feature": "categorical__purpose_house",
+    "mean_abs_shap": 0.0006591958808712661
+  },
+  {
+    "feature": "categorical__purpose_wedding",
+    "mean_abs_shap": 0.0006207447731867433
+  },
+  {
+    "feature": "categorical__emp_length_8 years",
+    "mean_abs_shap": 0.00036641917540691793
+  },
+  {
+    "feature": "categorical__emp_length_4 years",
+    "mean_abs_shap": 0.00027570544625632465
+  },
+  {
+    "feature": "categorical__purpose_renewable_energy",
+    "mean_abs_shap": 0.00022660079412162304
+  },
+  {
+    "feature": "categorical__purpose_educational",
+    "mean_abs_shap": 8.096447709249333e-05
+  },
+  {
+    "feature": "categorical__home_ownership_n_OTHER",
+    "mean_abs_shap": 1.8107199139194563e-05
+  }
+]
