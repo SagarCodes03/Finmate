@@ -99,6 +99,12 @@ export interface JourneyReassessmentResponse {
   is_simulated: boolean;
 }
 
+export interface RecoveryCustomerContext {
+  annualRevenue?: number;
+  monthlyObligations?: number;
+  creditScore?: number;
+}
+
 export interface CustomCustomerRequest {
   name: string; business_type: string; customer_goal: string; requested_amount: number;
   monthly_revenue: number; monthly_obligations: number; fico_n: number; emp_length: string;

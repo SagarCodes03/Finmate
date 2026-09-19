@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { getRecoveryCustomerContext } from "../api/journeys";
 import { DecisionSummary } from "../components/DecisionSummary";
 import { GovernedJourney } from "../components/GovernedJourney";
 import { HumanReviewCard } from "../components/HumanReviewCard";
@@ -8,6 +10,7 @@ import { RiskSignalCard } from "../components/RiskSignalCard";
 import { demoCustomers } from "../data/demos";
 import { useJourneyStore } from "../hooks/useJourneyStore";
 import { formatCurrency } from "../utils/format";
+import type { RecoveryCustomerContext } from "../types/journey";
 
 export function JourneyPage() {
   const { result, previousAssessment, currentCustomerId, customerSummary } = useJourneyStore();
@@ -32,10 +35,14 @@ function NotSuitableSummary() {
 }
 
 export function RecoveryPage() {
-  const { result } = useJourneyStore();
+  const { result, currentCustomerId, reassess, canReassess, errorMessage } = useJourneyStore();
+  const [customerContext, setCustomerContext] = useState<RecoveryCustomerContext | null>(null);
+  const [isReassessing, setIsReassessing] = useState(false);
+  useEffect(() => { let active = true; if (!currentCustomerId) return; void getRecoveryCustomerContext(currentCustomerId).then((context) => { if (active) setCustomerContext(context); }); return () => { active = false; }; }, [currentCustomerId]);
   if (!result?.goal_recovery) return <section className="empty-state"><h1>No Goal Recovery data is available yet.</h1><p>Recovery information appears only when the backend returns it for the current journey.</p><Link className="button button-primary" to="/journey">Back to journey</Link></section>;
   const recovery = result.goal_recovery;
-  return <div className="recovery-page"><section className="recovery-hero"><span className="eyebrow">GOAL RECOVERY / PROTOTYPE</span><h1>Your original path isn’t suitable.<br /><span>Your goal may still have illustrative paths.</span></h1><p>{recovery.recovery_reason}</p><div><span>Original goal</span><strong>{recovery.original_goal}</strong><span>Requested amount</span><strong>{formatCurrency(recovery.original_requested_amount)}</strong><span>Recovery status</span><strong>{recovery.recovery_status}</strong></div></section><section><div className="section-heading"><div><span className="eyebrow">AVAILABLE PATHWAYS</span><h2>Goal Recovery pathways</h2></div><p>Illustrative prototype paths; not offers, approvals, or guarantees.</p></div>{recovery.available_paths.length > 0 ? <div className="recovery-grid">{recovery.available_paths.map((path) => <RecoveryPathCard key={path.path} path={path} />)}</div> : <section className="card empty-recovery"><p>No recovery paths were returned for this journey.</p><p>{recovery.recovery_reason}</p></section>}</section><p className="notice">Customer data is simulated. Goal Recovery does not alter the XGBoost risk signal or deterministic policy decision.</p><Link className="button button-secondary" to="/journey">Back to journey</Link></div>;
+  const runReassessment = async (amount: number) => { setIsReassessing(true); await reassess(amount); setIsReassessing(false); };
+  return <div className="recovery-page"><section className="recovery-hero"><span className="eyebrow">GOAL RECOVERY</span><h1>That financing path isn’t suitable right now.<br /><span>Your goal doesn’t have to stop here.</span></h1><p>{recovery.recovery_reason}</p><div><span>Original goal</span><strong>{recovery.original_goal}</strong><span>Original request</span><strong>{formatCurrency(recovery.original_requested_amount)}</strong><span>Recovery status</span><strong>{recovery.recovery_status}</strong></div></section><section><div className="section-heading"><div><span className="eyebrow">AVAILABLE PATHWAYS</span><h2>Continue toward your goal</h2></div></div>{errorMessage && <p className="form-note" role="alert">{errorMessage}</p>}{recovery.available_paths.length > 0 ? <div className="recovery-grid">{recovery.available_paths.map((path) => <RecoveryPathCard key={path.path} path={path} customerContext={customerContext} riskFactors={result.risk_signal.top_risk_factors} onReassess={runReassessment} isReassessing={isReassessing} canReassess={canReassess} />)}</div> : <section className="card empty-recovery"><p>No recovery paths were returned for this journey.</p><p>{recovery.recovery_reason}</p></section>}</section><Link className="button button-secondary" to="/journey">Back to journey</Link></div>;
 }
 
 function EmptyJourney() { return <section className="empty-state"><h1>No journey has been analyzed yet.</h1><p>Start a governed demo journey to see the response-driven experience.</p><Link className="button button-primary" to="/">Start a new journey</Link></section>; }

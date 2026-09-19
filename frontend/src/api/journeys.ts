@@ -1,4 +1,4 @@
-import type { CustomCustomerRequest, CustomCustomerResponse, JourneyReassessmentResponse, JourneyRequest, JourneyResponse, SimulatedVerificationField } from "../types/journey";
+import type { CustomCustomerRequest, CustomCustomerResponse, JourneyReassessmentResponse, JourneyRequest, JourneyResponse, RecoveryCustomerContext, SimulatedVerificationField } from "../types/journey";
 
 const apiBaseUrl = (import.meta.env.VITE_API_BASE_URL ?? "http://127.0.0.1:8000").replace(/\/$/, "");
 
@@ -88,8 +88,31 @@ export async function reassessJourney(request: JourneyRequest, originalJourneyId
   const response = await fetch(`${apiBaseUrl}/api/v1/journeys/reassess`, {
     method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...request, original_journey_id: originalJourneyId })
   });
-  if (!response.ok) throw new JourneyApiError("FinMate could not re-run the governed journey assessment.", "error");
+  if (!response.ok) {
+    let message = "FinMate could not re-run the governed journey assessment.";
+    try { const body = await response.json() as { detail?: string }; if (typeof body.detail === "string") message = body.detail; } catch { /* Safe default. */ }
+    throw new JourneyApiError(message, "error");
+  }
   return await response.json() as JourneyReassessmentResponse;
+}
+
+async function getSimulatedContextSection(customerId: string, section: "financial" | "credit"): Promise<Record<string, unknown> | null> {
+  try {
+    const response = await fetch(`${apiBaseUrl}/api/v1/simulated-context/${encodeURIComponent(customerId)}/${section}`);
+    if (!response.ok) return null;
+    const value: unknown = await response.json();
+    return value && typeof value === "object" ? value as Record<string, unknown> : null;
+  } catch { return null; }
+}
+
+function numberValue(context: Record<string, unknown> | null, key: string): number | undefined {
+  const value = context?.[key];
+  return typeof value === "number" && Number.isFinite(value) ? value : undefined;
+}
+
+export async function getRecoveryCustomerContext(customerId: string): Promise<RecoveryCustomerContext> {
+  const [financial, credit] = await Promise.all([getSimulatedContextSection(customerId, "financial"), getSimulatedContextSection(customerId, "credit")]);
+  return { annualRevenue: numberValue(financial, "annual_revenue"), monthlyObligations: numberValue(financial, "existing_obligations"), creditScore: numberValue(credit, "fico_n") };
 }
 
 export { apiBaseUrl };

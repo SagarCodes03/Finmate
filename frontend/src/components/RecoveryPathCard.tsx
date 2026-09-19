@@ -1,15 +1,16 @@
 import { useState } from "react";
-import type { RecoveryPath } from "../types/journey";
-import { formatCurrency } from "../utils/format";
+import type { RecoveryCustomerContext, RecoveryPath, ShapFactor } from "../types/journey";
+import { formatCurrency, readableFeature } from "../utils/format";
 
-export function RecoveryPathCard({ path }: { path: RecoveryPath }) {
-  const [expanded, setExpanded] = useState(false);
+export function RecoveryPathCard({ path, customerContext, riskFactors, onReassess, isReassessing, canReassess }: { path: RecoveryPath; customerContext: RecoveryCustomerContext | null; riskFactors: ShapFactor[]; onReassess: (amount: number) => Promise<void>; isReassessing: boolean; canReassess: boolean }) {
+  const [detailsOpen, setDetailsOpen] = useState(false);
+  const [planStarted, setPlanStarted] = useState(false);
+  const isFinancingPath = path.path === "RIGHT_SIZED_FINANCING" || path.path === "PHASED_FINANCING";
+  const title = path.path === "RIGHT_SIZED_FINANCING" ? "Start with a smaller amount" : path.path === "PHASED_FINANCING" ? "Fund the goal in stages" : "Strengthen eligibility";
+  const amount = path.alternative_amount ?? path.requested_amount;
   return <article className="recovery-path" id={path.path}>
-    <span className="path-label">Illustrative prototype pathway · {path.path.replace(/_/g, " ")}</span>
-    <h2>{path.title}</h2><p>{path.description}</p>
-    {path.timeline_days != null && <p className="path-timeline"><strong>Preparation timeline:</strong> {path.timeline_days} days</p>}
-    {path.alternative_amount != null && <div className="path-amount">{formatCurrency(path.alternative_amount)} <small>illustrative amount — not an offer, approval, or guarantee</small></div>}
-    {expanded && <div className="path-details"><p className="path-reason">{path.reason}</p><ul>{path.next_actions.map((action) => <li key={action}>{action}</li>)}</ul></div>}
-    <button className="button button-secondary" type="button" aria-expanded={expanded} onClick={() => setExpanded((value) => !value)}>{expanded ? "Hide pathway details" : "Explore this pathway"}</button>
+    <span className="path-label">RECOVERY PATH</span><h2>{title}</h2><p>{path.description}</p>
+    {path.alternative_amount != null && <div className="path-amount">{formatCurrency(path.alternative_amount)}</div>}
+    {isFinancingPath ? <><div className="path-details"><h3>Why this path</h3><p className="path-reason">{path.reason}</p>{path.path === "PHASED_FINANCING" && <p>Phase 1 — {formatCurrency(amount)}. Later stages are evaluated separately.</p>}</div><button className="button button-primary" type="button" onClick={() => void onReassess(amount)} disabled={isReassessing || !canReassess}>{isReassessing ? "Re-evaluating your request…" : !canReassess ? "Recovery reassessment already completed" : path.path === "RIGHT_SIZED_FINANCING" ? `Re-evaluate ${formatCurrency(amount)} →` : "Evaluate Phase 1 →"}</button></> : <><div className="recovery-plan"><p className="path-timeline"><strong>{path.timeline_days ?? 90} days</strong></p><section><h3>1. Why this path</h3><p>{path.reason}</p></section><section><h3>2. Your current signals</h3><ul><li>Requested amount: {formatCurrency(path.requested_amount)}</li>{customerContext?.annualRevenue != null && <li>Business revenue: {formatCurrency(customerContext.annualRevenue)} annually</li>}{customerContext?.creditScore != null && <li>Credit score: {customerContext.creditScore}</li>}{customerContext?.monthlyObligations != null && <li>Monthly obligations: {formatCurrency(customerContext.monthlyObligations)}</li>}{riskFactors.slice(0, 3).map((factor) => <li key={factor.feature}>Key risk factor: {readableFeature(factor.feature)}</li>)}</ul></section><section><h3>3. 90-day preparation</h3><ol><li>Complete any outstanding identity, business, or document verification.</li><li>Maintain consistent business transaction records.</li><li>Maintain consistent repayment behaviour on existing obligations.</li><li>Prepare stable revenue and cash-flow evidence where applicable.</li></ol></section><section><h3>4. Reassessment</h3><p>After the preparation period, FinMate runs a new governed evaluation. Completing this plan does not determine the result.</p>{!planStarted ? <button className="button button-primary" type="button" onClick={() => setPlanStarted(true)}>Start 90-day plan →</button> : <button className="button button-primary" type="button" onClick={() => void onReassess(amount)} disabled={isReassessing || !canReassess}>{isReassessing ? "Re-evaluating your request…" : !canReassess ? "Recovery reassessment already completed" : "Reassess after 90 days →"}</button>}</section></div><button className="button button-secondary" type="button" aria-expanded={detailsOpen} onClick={() => setDetailsOpen((value) => !value)}>{detailsOpen ? "Hide plan details" : "View preparation details"}</button>{detailsOpen && <div className="path-details"><ul>{path.next_actions.map((action) => <li key={action}>{action}</li>)}</ul></div>}</>}
   </article>;
 }

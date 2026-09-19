@@ -91,15 +91,26 @@ describe("FinMate journey UI", () => {
     expect(screen.getByText(/no reviewer has been assigned/i)).toBeInTheDocument();
     expect(screen.getByText("COMPLEX_REVIEW")).toBeInTheDocument();
     expect(screen.getByText(/SHAP explanation/i)).toBeInTheDocument();
-    expect(screen.getByText(/dti n/i)).toBeInTheDocument();
+    expect(screen.getByText(/debt-to-income ratio/i)).toBeInTheDocument();
   });
-  it("opens actual returned recovery paths", async () => {
+  it("renders an actionable returned recovery path", async () => {
     await submitDecision("NOT_SUITABLE");
     await userEvent.click(screen.getAllByRole("link", { name: /explore recovery paths/i })[0]);
-    expect(await screen.findByText(/goal recovery pathways/i)).toBeInTheDocument();
-    expect(screen.getByText(/right-sized prototype financing path/i)).toBeInTheDocument();
-    await userEvent.click(screen.getByRole("button", { name: /explore this pathway/i }));
+    expect(await screen.findByText(/continue toward your goal/i)).toBeInTheDocument();
+    expect(screen.getByText(/start with a smaller amount/i)).toBeInTheDocument();
     expect(screen.getByText(/a lower amount is a future path/i)).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /re-evaluate ₹1,00,000/i })).toBeInTheDocument();
+  });
+  it("sends the selected right-sized amount through governed reassessment", async () => {
+    const fetchMock = vi.fn().mockResolvedValue(new Response(JSON.stringify(responseFor("NOT_SUITABLE")), { status: 200, headers: { "Content-Type": "application/json" } }));
+    vi.stubGlobal("fetch", fetchMock);
+    render(<App />);
+    await userEvent.click(screen.getByRole("button", { name: /analyze my journey/i }));
+    await userEvent.click((await screen.findAllByRole("link", { name: /explore recovery paths/i }))[0]);
+    await userEvent.click(await screen.findByRole("button", { name: /re-evaluate ₹1,00,000/i }));
+    await waitFor(() => expect(fetchMock.mock.calls.some(([url]) => String(url).includes("/api/v1/journeys/reassess"))).toBe(true));
+    const [, options] = fetchMock.mock.calls.find(([url]) => String(url).includes("/api/v1/journeys/reassess")) as [string, RequestInit];
+    expect(JSON.parse(String(options.body))).toMatchObject({ customer_goal: "Purchase inventory", requested_amount: 100000, original_journey_id: "test-journey-1" });
   });
   it("navigates to returned decision intelligence and audit metadata", async () => {
     await submitDecision("NOT_SUITABLE");
