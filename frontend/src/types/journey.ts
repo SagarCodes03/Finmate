@@ -99,6 +99,25 @@ export interface JourneyReassessmentResponse {
   is_simulated: boolean;
 }
 
+export interface RecoveryPlanPeriod {
+  period: "Days 1-30" | "Days 31-60" | "Days 61-90";
+  actions: string[];
+}
+
+export interface RecoveryPersonalization {
+  headline: string;
+  goal_summary: string;
+  why_current_path_failed: string;
+  recommended_next_steps: string[];
+  personalized_90_day_plan: RecoveryPlanPeriod[];
+  recovery_path_explanations: Array<{ path_code: RecoveryPath["path"]; explanation: string }>;
+}
+
+export interface RecoveryPersonalizationResponse {
+  personalization: RecoveryPersonalization | null;
+  source: "GEMINI" | "DETERMINISTIC_FALLBACK";
+}
+
 export interface RecoveryCustomerContext {
   annualRevenue?: number;
   monthlyObligations?: number;

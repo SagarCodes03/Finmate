@@ -1,4 +1,4 @@
-import type { CustomCustomerRequest, CustomCustomerResponse, JourneyReassessmentResponse, JourneyRequest, JourneyResponse, RecoveryCustomerContext, SimulatedVerificationField } from "../types/journey";
+import type { CustomCustomerRequest, CustomCustomerResponse, JourneyReassessmentResponse, JourneyRequest, JourneyResponse, RecoveryCustomerContext, RecoveryPersonalizationResponse, SimulatedVerificationField } from "../types/journey";
 
 const apiBaseUrl = (import.meta.env.VITE_API_BASE_URL ?? "http://127.0.0.1:8000").replace(/\/$/, "");
 
@@ -113,6 +113,24 @@ function numberValue(context: Record<string, unknown> | null, key: string): numb
 export async function getRecoveryCustomerContext(customerId: string): Promise<RecoveryCustomerContext> {
   const [financial, credit] = await Promise.all([getSimulatedContextSection(customerId, "financial"), getSimulatedContextSection(customerId, "credit")]);
   return { annualRevenue: numberValue(financial, "annual_revenue"), monthlyObligations: numberValue(financial, "existing_obligations"), creditScore: numberValue(credit, "fico_n") };
+}
+
+export async function getRecoveryPersonalization(customerId: string, journey: JourneyResponse): Promise<RecoveryPersonalizationResponse | null> {
+  if (!journey.goal_recovery) return null;
+  try {
+    const response = await fetch(`${apiBaseUrl}/api/v1/recovery/personalize`, {
+      method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({
+        customer_id: customerId,
+        policy_reason_code: journey.policy_decision.reason_code,
+        risk_signal: journey.risk_signal,
+        top_risk_factors: journey.risk_signal.top_risk_factors,
+        recovery: journey.goal_recovery
+      })
+    });
+    if (!response.ok) return null;
+    const value: unknown = await response.json();
+    return value && typeof value === "object" ? value as RecoveryPersonalizationResponse : null;
+  } catch { return null; }
 }
 
 export { apiBaseUrl };
