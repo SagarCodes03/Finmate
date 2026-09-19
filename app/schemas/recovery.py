@@ -28,6 +28,7 @@ class RecoveryOption(BaseModel):
     requested_amount: int = Field(gt=0)
     alternative_amount: int | None = Field(default=None, gt=0)
     next_actions: list[str]
+    timeline_days: int | None = Field(default=None, gt=0)
     prototype_only: bool = True
 
 

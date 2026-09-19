@@ -86,6 +86,37 @@ def test_assistant_returns_safe_gemini_provider_error(monkeypatch) -> None:
     assert response.json()["detail"] == "The Gemini service could not complete this request."
 
 
+def test_gemini_diagnostic_reports_mocked_success_without_exposing_key(monkeypatch) -> None:
+    monkeypatch.setattr(get_settings(), "gemini_api_key", "test-key")
+    monkeypatch.setattr(get_settings(), "gemini_model", "gemini-test-model")
+
+    class FakeModels:
+        def generate_content(self, **_: object) -> object:
+            return SimpleNamespace(text="READY")
+
+    monkeypatch.setattr("app.services.assistant.genai.Client", lambda **_: SimpleNamespace(models=FakeModels()))
+    with TestClient(app) as client:
+        response = client.post("/api/v1/assistant/diagnostic")
+    assert response.status_code == 200
+    assert response.json() == {"configured": True, "model": "gemini-test-model", "request_status": "SUCCESS"}
+    assert "test-key" not in response.text
+
+
+def test_gemini_diagnostic_reports_mocked_failure_without_exposing_key(monkeypatch) -> None:
+    monkeypatch.setattr(get_settings(), "gemini_api_key", "test-key")
+
+    class FakeModels:
+        def generate_content(self, **_: object) -> object:
+            raise RuntimeError("provider secret details")
+
+    monkeypatch.setattr("app.services.assistant.genai.Client", lambda **_: SimpleNamespace(models=FakeModels()))
+    with TestClient(app) as client:
+        response = client.post("/api/v1/assistant/diagnostic")
+    assert response.status_code == 200
+    assert response.json()["request_status"] == "FAILED"
+    assert "secret" not in response.text.lower()
+
+
 def test_assistant_classifies_provider_failures_without_exposing_details() -> None:
     assert FinMateAssistant._classify_provider_error(AssistantResponseError("empty")) == "response_parsing"
     assert FinMateAssistant._classify_provider_error(AssistantToolExecutionError("failed")) == "tool_execution"

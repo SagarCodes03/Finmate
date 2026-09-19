@@ -82,6 +82,8 @@ def test_goal_recovery_node_uses_exact_fastapi_recovery_contract() -> None:
         "risk_signal",
         "top_risk_factors",
         "customer_context",
+        "human_review_required",
+        "human_review_reason",
     }
 
     assert parameters["method"] == "POST"
@@ -101,7 +103,8 @@ def test_goal_recovery_node_uses_exact_fastapi_recovery_contract() -> None:
         "predicted_risk_class: Math.trunc(Number($json.risk_signal.predicted_risk_class))",
         "model_version: $json.risk_signal.model_version",
         "top_risk_factors: $node['Get SHAP Explanation'].json.top_risk_factors",
-        "customer_context: { simulated: true }",
+        "customer_context: { simulated: true, recovery_allowed: $node['Build Model Context'].json.crm.recovery_allowed }",
+        "human_review_required: Boolean($json.human_review_required)",
     ):
         assert mapping in body_expression
 
@@ -119,7 +122,9 @@ def test_goal_recovery_node_uses_exact_fastapi_recovery_contract() -> None:
             "model_version": "finmate-default-risk-xgb-v2",
         },
         "top_risk_factors": [{"feature": "numeric__dti_n", "shap_value": 0.2}],
-        "customer_context": {"simulated": True},
+        "customer_context": {"simulated": True, "recovery_allowed": True},
+        "human_review_required": False,
+        "human_review_reason": None,
     }))
 
     assert set(body) == mapped_fields
@@ -130,7 +135,7 @@ def test_goal_recovery_node_uses_exact_fastapi_recovery_contract() -> None:
     assert isinstance(body["risk_signal"]["predicted_risk_class"], int)
     assert isinstance(body["top_risk_factors"], list)
     assert isinstance(body["top_risk_factors"][0]["shap_value"], float)
-    assert body["customer_context"] == {"simulated": True}
+    assert body["customer_context"] == {"simulated": True, "recovery_allowed": True}
     assert workflow["connections"]["Decision Router"]["main"][0] == [
         {"node": "Goal Recovery", "type": "main", "index": 0}
     ]

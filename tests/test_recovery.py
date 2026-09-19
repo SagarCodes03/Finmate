@@ -45,6 +45,17 @@ def test_high_amount_produces_right_sized_and_phased_options() -> None:
     assert RecoveryPath.PHASED_FINANCING in paths
 
 
+def test_90_day_preparation_path_has_concrete_actions_without_a_guarantee() -> None:
+    result = evaluate_recovery(RecoveryEvaluationRequest.model_validate(payload()))
+    plan = next(option for option in result.available_paths if option.path is RecoveryPath.IMPROVE_ELIGIBILITY)
+    assert plan.timeline_days == 90
+    assert plan.title == "Improve eligibility and reassess in 90 days"
+    assert len(plan.next_actions) == 7
+    assert any("identity and business documentation" in action.lower() for action in plan.next_actions)
+    assert any("bank statements" in action.lower() for action in plan.next_actions)
+    assert all("guarantee" not in action.lower() and "approval" not in action.lower() for action in plan.next_actions)
+
+
 def test_eligible_and_missing_information_do_not_generate_recovery() -> None:
     eligible = evaluate_recovery(RecoveryEvaluationRequest.model_validate(payload(original_policy_decision="ELIGIBLE")))
     missing = evaluate_recovery(RecoveryEvaluationRequest.model_validate(payload(original_policy_decision="MISSING_INFORMATION")))

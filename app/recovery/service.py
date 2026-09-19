@@ -60,10 +60,19 @@ def evaluate_recovery(request: RecoveryEvaluationRequest, config: RecoveryConfig
             next_actions=["Define a smaller first stage for the same goal.", "Reassess any later stage through a new governed evaluation."],
         ))
     options.append(RecoveryOption(
-        path=RecoveryPath.IMPROVE_ELIGIBILITY, title="Improve eligibility and reapply",
-        description="Address relevant explained risk factors before a future prototype reapplication.",
+        path=RecoveryPath.IMPROVE_ELIGIBILITY, title="Improve eligibility and reassess in 90 days",
+        description="Follow this concrete 90-day prototype preparation plan while preserving the same customer goal. It is not a promise of approval or a financial outcome.",
         reason="The original path was unsuitable because of " + factor_summary + ".",
         requested_amount=request.requested_amount, alternative_amount=None,
-        next_actions=["Review the explained risk factors.", f"Consider reapplication after at least {config.reapplication_waiting_period_days} days in this prototype.", "A later evaluation remains governed and is not guaranteed."],
+        timeline_days=config.reapplication_waiting_period_days,
+        next_actions=[
+            "Complete all required identity and business documentation.",
+            "Maintain consistent business transaction records and bank statements.",
+            "Keep existing debt obligations under control and avoid unnecessary new borrowing.",
+            "Maintain consistent repayment behaviour on existing obligations.",
+            "Work toward stronger, stable business revenue and cash-flow evidence.",
+            "Complete any missing verification requirements shown by FinMate.",
+            f"Reassess eligibility after the {config.reapplication_waiting_period_days}-day preparation period through a new governed evaluation.",
+        ],
     ))
     return _response(request, RecoveryStatus.AVAILABLE, "HIGH_RISK_PROTOTYPE_RECOVERY", "The original path was not suitable under the prototype risk rule; controlled alternatives are available for the same goal.", options, ["R004_HIGH_RISK_RECOVERY"])

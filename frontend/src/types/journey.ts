@@ -57,6 +57,7 @@ export interface RecoveryPath {
   requested_amount: number;
   alternative_amount?: number | null;
   next_actions: string[];
+  timeline_days?: number | null;
   prototype_only: boolean;
 }
 

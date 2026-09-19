@@ -18,7 +18,7 @@ from app.ml.inference import predict_risk
 from app.models.demo_context import DemoCustomer
 from app.policy.service import evaluate_policy
 from app.recovery.service import evaluate_recovery
-from app.schemas.orchestration import AssistantChatRequest, AssistantChatResponse
+from app.schemas.orchestration import AssistantChatRequest, AssistantChatResponse, AssistantDiagnosticResponse
 from app.schemas.policy import PolicyEvaluationRequest
 from app.schemas.recovery import RecoveryEvaluationRequest
 
@@ -162,6 +162,28 @@ class FinMateAssistant:
             context_used=self.context_used,
             governance_note=GOVERNANCE_NOTE,
         )
+
+    def diagnose_provider(self) -> AssistantDiagnosticResponse:
+        """Perform a minimal Gemini request without returning provider content or secrets."""
+        if not self.settings.gemini_api_key:
+            return AssistantDiagnosticResponse(configured=False, request_status="NOT_CONFIGURED")
+        try:
+            client = genai.Client(api_key=self.settings.gemini_api_key)
+            response = client.models.generate_content(
+                model=self.settings.gemini_model,
+                contents="Return exactly READY.",
+                config=types.GenerateContentConfig(temperature=0, max_output_tokens=8),
+            )
+            if not (getattr(response, "text", None) or "").strip():
+                raise AssistantResponseError("Gemini diagnostic returned no text.")
+        except Exception as error:
+            logger.warning(
+                "Gemini diagnostic failed: category=%s model=%s exception=%s status_code=%s",
+                self._classify_provider_error(error), self.settings.gemini_model,
+                type(error).__name__, getattr(error, "code", None),
+            )
+            return AssistantDiagnosticResponse(configured=True, model=self.settings.gemini_model, request_status="FAILED")
+        return AssistantDiagnosticResponse(configured=True, model=self.settings.gemini_model, request_status="SUCCESS")
 
     def get_customer_context(self, customer_id: str) -> dict[str, Any]:
         self._record("get_customer_context", "customer_context")

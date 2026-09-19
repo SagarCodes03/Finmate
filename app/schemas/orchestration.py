@@ -185,3 +185,9 @@ class AssistantChatResponse(BaseModel):
     journey_status: str | None = None
     context_used: list[str] = Field(default_factory=list)
     governance_note: str
+
+
+class AssistantDiagnosticResponse(BaseModel):
+    configured: bool
+    model: str | None = None
+    request_status: Literal["SUCCESS", "FAILED", "NOT_CONFIGURED"]
